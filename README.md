@@ -175,10 +175,10 @@ Sinh viên cần nộp đầy đủ các nội dung sau:
 Sinh viên cập nhật thông tin cá nhân tại đây:
 
 ```text
-Họ và tên:
-Mã số sinh viên:
-Lớp:
-Tên đề tài:
-Liên kết GitHub repository:
-Liên kết GitHub Pages:
+Họ và tên: Lê Đặng Trọng
+Mã số sinh viên: 110125196
+Lớp: DA25TTB
+Tên đề tài: Thiết kế website bán sách sử dụng HTML, javaScript, Bootstrap
+Liên kết GitHub repository: https://github.com/TKW-22526/final-test-web-design-dangtrong210
+Liên kết GitHub Pages: 
 ```

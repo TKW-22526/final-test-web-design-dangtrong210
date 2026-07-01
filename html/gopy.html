@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+	<title>Góp ý</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" href="../css/gopy.css">
+</head>
+
+<body>
+	<div class="container">
+		<form id="frmLogin">
+			<h2>Hộp thư góp ý</h2>
+			<div class="form-group">
+				<label for="txtUsername">Họ và tên</label>
+				<input type="text" id="txtUsername" name="txtUsername">
+			</div>
+			<div class="form-group">
+				<label for="txtPassword">Tỉnh/Thành phố</label>
+				<select id="txtPassword" name="txtPassword">
+					<option value="">Chọn tỉnh/thành phố</option>
+					<option value="Hà Nội">Hà Nội</option>
+					<option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+					<option value="Đà Nẵng">Đà Nẵng</option>
+					<option value="Hải Phòng">Hải Phòng</option>
+					<option value="Cần Thơ">Cần Thơ</option>
+					<option value="An Giang">An Giang</option>
+					<option value="Bà Rịa - Vũng Tàu">Bà Rịa - Vũng Tàu</option>
+					<option value="Bắc Giang">Bắc Giang</option>
+					<option value="Bắc Kạn">Bắc Kạn</option>
+					<option value="Bạc Liêu">Bạc Liêu</option>
+					<option value="Bắc Ninh">Bắc Ninh</option>
+					<option value="Bến Tre">Bến Tre</option>
+					<option value="Bình Định">Bình Định</option>
+					<option value="Bình Dương">Bình Dương</option>
+					<option value="Bình Phước">Bình Phước</option>
+					<option value="Bình Thuận">Bình Thuận</option>
+					<option value="Cà Mau">Cà Mau</option>
+					<option value="Cao Bằng">Cao Bằng</option>
+					<option value="Đắk Lắk">Đắk Lắk</option>
+					<option value="Đắk Nông">Đắk Nông</option>
+					<option value="Điện Biên">Điện Biên</option>
+					<option value="Đồng Nai">Đồng Nai</option>
+					<option value="Đồng Tháp">Đồng Tháp</option>
+					<option value="Gia Lai">Gia Lai</option>
+					<option value="Hà Giang">Hà Giang</option>
+					<option value="Hà Nam">Hà Nam</option>
+					<option value="Hà Tĩnh">Hà Tĩnh</option>
+					<option value="Hải Dương">Hải Dương</option>
+					<option value="Hậu Giang">Hậu Giang</option>
+					<option value="Hòa Bình">Hòa Bình</option>
+					<option value="Hưng Yên">Hưng Yên</option>
+					<option value="Khánh Hòa">Khánh Hòa</option>
+					<option value="Kiên Giang">Kiên Giang</option>
+					<option value="Kon Tum">Kon Tum</option>
+					<option value="Lai Châu">Lai Châu</option>
+					<option value="Lâm Đồng">Lâm Đồng</option>
+					<option value="Lạng Sơn">Lạng Sơn</option>
+					<option value="Lào Cai">Lào Cai</option>
+					<option value="Long An">Long An</option>
+					<option value="Nam Định">Nam Định</option>
+					<option value="Nghệ An">Nghệ An</option>
+					<option value="Ninh Bình">Ninh Bình</option>
+					<option value="Ninh Thuận">Ninh Thuận</option>
+					<option value="Phú Thọ">Phú Thọ</option>
+					<option value="Phú Yên">Phú Yên</option>
+					<option value="Quảng Bình">Quảng Bình</option>
+					<option value="Quảng Trị">Quảng Trị</option>
+					<option value="Quảng Ngãi">Quảng Ngãi</option>
+					<option value="Quảng Nam">Quảng Nam</option>
+					<option value="Quảng Ninh">Quảng Ninh</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label>Lĩnh vực góp ý</label>
+				<div class="checkbox-group">
+					<input type="checkbox" id="linhvuc" name="linhvuc" value="Bố cục">
+					<label for="linhvuc">Bố cục</label>
+					<input type="checkbox" id="linhvuc" name="linhvuc" value="Giao diện">
+					<label for="linhvuc">Giao diện</label><br>
+					<input type="checkbox" id="linhvuc" name="linhvuc" value="Thể loại">
+					<label for="linhvuc">Thể loại</label><br>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="Language">Ngôn ngữ</label>
+				<select id="Language" name="Language">
+					<option value="">Chọn ngôn ngữ</option>
+					<option value="Tiếng Việt">Tiếng Việt</option>
+					<option value="Tiếng Anh">Tiếng Anh</option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label for="txtComment">Nội dung góp ý</label>
+				<textarea id="txtComment" name="txtComment"></textarea>
+			</div>
+
+
+			<div class="form-control">
+				<input type="submit" value="Góp ý" name="sbLogin" id="control">
+				<input type="reset" value="Reset" name="sbReset" id="control">
+			</div>
+		</form>
+	</div>
+</body>
+
+</html>

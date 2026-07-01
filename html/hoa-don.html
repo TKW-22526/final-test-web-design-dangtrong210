@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang = "vi">
+	<head>
+		<title>hoa-don</title>
+		<meta charset = "utf-8">
+        <link rel="stylesheet" href="../css/hoa-don.css">
+        <script src = "../js/lib.js"></script>
+	</head>
+	<body>
+		<div class = "container">
+       	    <table class="hoadon">
+            <tr>
+                <th>STT</th>
+                <th>Tên sản phẩm</th>
+                <th>Đơn giá</th>
+                <th>Số lượng</th>
+                <th>Đơn vị tính</th>
+                <th>Thành tiền</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>A</td>
+                <td class="dongia">50</td>
+                <td class="soluong">10</td>
+                <td>Thùng</td>
+                <td class="thanhtien"></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>B</td>
+                <td class="dongia">70</td>
+                <td class="soluong">20</td>
+                <td>Bao</td>
+                <td class="thanhtien"></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>C</td>
+                <td class="dongia">20</td>
+                <td class="soluong">30</td>
+                <td>Túi</td>
+                <td class="thanhtien"></td>
+            </tr>
+            <tr>
+                <td colspan="5">Tong thanh toan</td>
+                <td id="thanhtoan"></td>
+            </tr>
+        </table>
+        <script>tinhtien();</script>
+	</body>
+</html>
