@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập - BookStore</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="../css/auth.css" rel="stylesheet">
+</head>
+<body class="auth-body">
+
+  <div class="container-fluid">
+    <div class="row min-vh-100">
+
+      <!-- ===== PANEL THƯƠNG HIỆU (chỉ hiện trên màn lớn) ===== -->
+      <div class="col-lg-6 d-none d-lg-flex auth-left flex-column justify-content-center align-items-center text-white p-5">
+        <i class="bi bi-book-half display-1 mb-3"></i>
+        <h1 class="fw-bold mb-3">BookStore</h1>
+        <p class="lead text-center">
+          Đăng nhập để tiếp tục hành trình khám phá tri thức cùng hàng ngàn đầu sách hay.
+        </p>
+        <blockquote class="mt-4 fst-italic">
+          "Một quyển sách hay là một người bạn tốt."
+        </blockquote>
+      </div>
+
+      <!-- ===== PANEL FORM ĐĂNG NHẬP ===== -->
+      <div class="col-lg-6 d-flex align-items-center justify-content-center auth-right p-4">
+        <div class="auth-form-box w-100" style="max-width: 420px;">
+
+          <div class="text-center mb-4 d-lg-none">
+            <i class="bi bi-book-half fs-1 text-primary"></i>
+            <h4 class="fw-bold mt-2">BookStore</h4>
+          </div>
+
+          <h3 class="fw-bold mb-1">Đăng nhập</h3>
+          <p class="text-muted mb-4">Chào mừng bạn quay trở lại!</p>
+
+          <div id="loginAlert" class="alert alert-success d-none" role="alert"></div>
+
+          <form id="loginForm" novalidate>
+            <div class="mb-3">
+              <label class="form-label" for="loginEmail">Email</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text"><i class="bi bi-envelope"></i></span>
+                <input type="email" class="form-control" id="loginEmail" placeholder="vidu@gmail.com" required>
+                <div class="invalid-feedback">Vui lòng nhập một địa chỉ email hợp lệ.</div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label" for="loginPassword">Mật khẩu</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text"><i class="bi bi-lock"></i></span>
+                <input type="password" class="form-control" id="loginPassword" placeholder="Nhập mật khẩu" required minlength="6">
+                <button type="button" class="btn btn-outline-secondary toggle-password" data-target="loginPassword" tabindex="-1">
+                  <i class="bi bi-eye"></i>
+                </button>
+                <div class="invalid-feedback">Mật khẩu phải có ít nhất 6 ký tự.</div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="rememberMe">
+                <label class="form-check-label small" for="rememberMe">Ghi nhớ đăng nhập</label>
+              </div>
+              <a href="#" class="small text-decoration-none">Quên mật khẩu?</a>
+            </div>
+
+            <button type="submit" class="btn btn-primary-gradient w-100 mb-3">Đăng nhập</button>
+          </form>
+
+          <div class="auth-divider my-4"><span>hoặc tiếp tục với</span></div>
+
+          <div class="d-flex gap-3 mb-4">
+            <button type="button" class="btn btn-outline-secondary w-100">
+              <i class="bi bi-google me-2"></i>Google
+            </button>
+            <button type="button" class="btn btn-outline-secondary w-100">
+              <i class="bi bi-facebook me-2"></i>Facebook
+            </button>
+          </div>
+
+          <p class="text-center text-muted mb-0">
+            Chưa có tài khoản?
+            <a href="register.html" class="fw-semibold text-decoration-none">Đăng ký ngay</a>
+          </p>
+
+          <p class="text-center mt-3">
+            <a href="../index.html" class="small text-muted text-decoration-none">
+              <i class="bi bi-arrow-left"></i> Quay về trang chủ
+            </a>
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../js/auth.js" defer></script>
+</body>
+</html>

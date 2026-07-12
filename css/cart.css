@@ -1,0 +1,92 @@
+/* ===== cart.css - Style riêng cho trang Giỏ hàng ===== */
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f7f7fb;
+}
+
+.section-title {
+  font-weight: 700;
+  position: relative;
+  padding-left: 14px;
+  border-left: 5px solid #5b3cc4;
+}
+
+/* ===== Bảng sản phẩm trong giỏ ===== */
+.cart-table-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+.cart-table thead th {
+  border-bottom: 2px solid #eee;
+  color: #666;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.cart-table td {
+  vertical-align: middle;
+}
+
+.cart-item-img {
+  width: 64px;
+  height: 86px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* Bộ chọn số lượng */
+.quantity-selector {
+  width: 110px;
+}
+
+.quantity-selector input {
+  text-align: center;
+}
+
+/* ===== Khối tóm tắt đơn hàng ===== */
+.cart-summary-card {
+  border-radius: 12px;
+}
+
+.cart-summary-card .total-price {
+  font-size: 1.4rem;
+  color: #d62b2b;
+}
+
+#discountFeedback {
+  display: block;
+  margin-top: 6px;
+}
+
+/* Nút gradient dùng chung phong cách với toàn site */
+.btn-primary-gradient {
+  background: linear-gradient(135deg, #2b2d6e 0%, #5b3cc4 100%);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  transition: opacity 0.2s ease;
+}
+
+.btn-primary-gradient:hover,
+.btn-primary-gradient:focus {
+  opacity: 0.92;
+  color: #fff;
+}
+
+/* ===== Trạng thái giỏ hàng trống ===== */
+#emptyCartState {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #eee;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+  .cart-summary-card {
+    position: static !important;
+  }
+}

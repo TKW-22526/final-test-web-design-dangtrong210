@@ -1,15 +1,88 @@
 <!DOCTYPE html>
 <html lang="vi">
-	<head>
-		<title>Trang chủ</title>
-		<meta charset="utf-8">
-	</head>
-	<body>
-		<a href="html/dangnhap.html">Trang đăng nhập</a><br>
-		<a href="html/dangky.html">Trang đăng ký</a><br>
-		<a href="html/thongtin.html">Thông tin cá nhân</a><br>
-		<a href="html/bang-cuu-chuong.html">Bang cuu chuong</a><br>
-		<a href="html/gopy.html">Góp ý</a><br>
-		<a href="html/san-pham.html">Trang bán hàng</a>
-	</body>
-</html> 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookStore - Nhà sách trực tuyến</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/index.css" rel="stylesheet">
+  <link href="css/header-search.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html">
+        <i class="bi bi-book-half me-2"></i>BookStore
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <div class="search-wrapper mx-auto my-2 my-lg-0" style="max-width:420px;width:100%;">
+          <form class="d-flex" id="searchForm" autocomplete="off">
+            <input class="form-control" type="search" id="searchInput" name="search" placeholder="Tìm kiếm sách, tác giả..." autocomplete="off">
+            <button class="btn btn-outline-light ms-2" type="submit"><i class="bi bi-search"></i></button>
+          </form>
+          <div class="search-suggestions-dropdown d-none" id="searchSuggestions"></div>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <a href="html/login.html" class="text-light text-decoration-none"><i class="bi bi-person-circle"></i> Đăng nhập</a>
+          <a href="html/cart.html" class="text-light text-decoration-none position-relative">
+            <i class="bi bi-cart3 fs-5"></i>
+            <span id="cartCount" class="badge bg-danger rounded-pill position-absolute top-0 start-100 translate-middle">0</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO BANNER ===== -->
+  <header class="hero-section text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-5 fw-bold">Khám phá thế giới tri thức</h1>
+      <p class="lead">Hàng ngàn đầu sách hay với giá tốt nhất, giao hàng toàn quốc</p>
+      <a href="#bookList" class="btn btn-light btn-lg mt-2 fw-semibold">Mua sắm ngay</a>
+    </div>
+  </header>
+
+  <!-- ===== BỘ LỌC DANH MỤC ===== -->
+  <div class="container mt-4">
+    <div class="d-flex flex-wrap gap-2 justify-content-center" id="categoryFilter">
+      <button class="btn btn-outline-primary btn-sm active-filter" data-category="all">Tất cả</button>
+      <button class="btn btn-outline-primary btn-sm" data-category="Tiểu thuyết">Tiểu thuyết</button>
+      <button class="btn btn-outline-primary btn-sm" data-category="Kỹ năng sống">Kỹ năng sống</button>
+      <button class="btn btn-outline-primary btn-sm" data-category="Tài chính">Tài chính</button>
+      <button class="btn btn-outline-primary btn-sm" data-category="Khoa học">Khoa học</button>
+      <button class="btn btn-outline-primary btn-sm" data-category="Tâm linh">Tâm linh</button>
+    </div>
+  </div>
+
+  <!-- ===== DANH SÁCH SÁCH (sinh bởi index.js) ===== -->
+  <main class="container my-5" id="bookList">
+    <div class="d-flex align-items-center gap-3 mb-4 flex-wrap">
+      <h2 class="mb-0 section-title" id="bookListHeading">Sách bán chạy</h2>
+      <button type="button" class="btn btn-sm btn-link text-decoration-none d-none" id="clearSearchBtn">
+        <i class="bi bi-x-circle me-1"></i>Xóa tìm kiếm
+      </button>
+    </div>
+    <div class="row g-4" id="bookContainer">
+      <!-- 10 cuốn sách sẽ được index.js tự động sinh ra ở đây -->
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-dark text-light py-4 mt-5">
+    <div class="container text-center">
+      <p class="mb-1">© 2026 BookStore - Đồ án sinh viên</p>
+      <p class="mb-0 small text-secondary">Xây dựng với HTML, CSS, JavaScript &amp; Bootstrap</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="js/header-search.js" defer></script>
+  <script src="js/index.js" defer></script>
+</body>
+</html>

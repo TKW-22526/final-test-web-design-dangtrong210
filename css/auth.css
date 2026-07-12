@@ -1,0 +1,153 @@
+/* ===== auth.css - Style chung cho trang Đăng nhập & Đăng ký ===== */
+
+body.auth-body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0;
+}
+
+/* ===== Panel bên trái (thương hiệu) ===== */
+.auth-left {
+  background: linear-gradient(135deg, #2b2d6e 0%, #5b3cc4 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-left::before {
+  content: "";
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  top: -80px;
+  right: -80px;
+}
+
+.auth-left::after {
+  content: "";
+  position: absolute;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.06);
+  bottom: -60px;
+  left: -60px;
+}
+
+.auth-left .lead {
+  max-width: 420px;
+  opacity: 0.92;
+}
+
+.auth-left blockquote {
+  max-width: 420px;
+  border-left: 3px solid rgba(255, 255, 255, 0.5);
+  padding-left: 1rem;
+  opacity: 0.85;
+}
+
+/* ===== Panel bên phải (form) ===== */
+.auth-right {
+  background-color: #f7f7fb;
+}
+
+.auth-form-box {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Input ===== */
+.auth-form-box .input-group-text {
+  background-color: #fff;
+  border-right: none;
+  color: #888;
+}
+
+.auth-form-box .form-control {
+  border-left: none;
+}
+
+.auth-form-box .input-group:focus-within {
+  box-shadow: 0 0 0 0.2rem rgba(91, 60, 196, 0.15);
+  border-radius: 0.375rem;
+}
+
+.auth-form-box .form-control:focus {
+  box-shadow: none;
+  border-color: #ced4da;
+}
+
+/* ===== Nút bấm chính ===== */
+.btn-primary-gradient {
+  background: linear-gradient(135deg, #2b2d6e 0%, #5b3cc4 100%);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 0.6rem 0;
+  transition: opacity 0.2s ease;
+}
+
+.btn-primary-gradient:hover,
+.btn-primary-gradient:focus {
+  opacity: 0.92;
+  color: #fff;
+}
+
+/* ===== Đường kẻ "hoặc" ===== */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  color: #999;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.auth-divider span {
+  padding: 0 12px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+/* ===== Nút hiện/ẩn mật khẩu ===== */
+.toggle-password {
+  border-left: none;
+  background-color: #fff;
+  color: #888;
+}
+
+.toggle-password:hover,
+.toggle-password:focus {
+  background-color: #fff;
+  color: #5b3cc4;
+}
+
+/* ===== Thanh đo độ mạnh mật khẩu ===== */
+.password-strength .progress {
+  border-radius: 4px;
+  background-color: #eee;
+}
+
+.password-strength .progress-bar {
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+/* ===== Ghi chú nhỏ dưới mật khẩu ===== */
+.field-hint {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 991.98px) {
+  .auth-form-box {
+    box-shadow: none;
+    padding: 1.5rem;
+  }
+}
