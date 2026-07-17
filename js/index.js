@@ -20,6 +20,50 @@ function getBookData() {
   ];
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+  renderCategoryFilters();
+});
+
+/* Hàm tự động sinh các nút danh mục dựa trên dữ liệu từ getBookData() */
+function renderCategoryFilters() {
+  const filterContainer = document.getElementById("categoryFilter");
+  if (!filterContainer) return;
+  const books = getBookData();
+  const categories = [...new Set(books.map(book => book.category))].filter(Boolean);
+
+  let html = `<button class="btn btn-outline-primary btn-sm active-filter" data-category="all">Tất cả</button>`;
+
+  categories.forEach(category => {
+    html += `<button class="btn btn-outline-primary btn-sm" data-category="${category}">${category}</button>`;
+  });
+  filterContainer.innerHTML = html;
+
+  setupFilterEvents();
+}
+
+/* Hàm gắn sự kiện lọc sách khi nhấn nút */
+function setupFilterEvents() {
+  const buttons = document.querySelectorAll("#categoryFilter .btn");
+  
+  buttons.forEach(button => {
+    button.addEventListener("click", function() {
+      document.querySelector("#categoryFilter .active-filter")?.classList.remove("active-filter");
+      this.classList.add("active-filter");
+
+      const selectedCategory = this.getAttribute("data-category");
+
+      // Logic lọc hiển thị danh sách sách trên trang chủ:
+      // if (selectedCategory === "all") {
+      //   renderBookList(getBookData());
+      // } else {
+      //   const filtered = getBookData().filter(book => book.category === selectedCategory);
+      //   renderBookList(filtered);
+      // }
+      console.log("Đã chọn lọc danh mục:", selectedCategory);
+    });
+  });
+}
+
 /* Định dạng số tiền theo chuẩn VND */
 function formatCurrency(value) {
   return value.toLocaleString("vi-VN") + "đ";
