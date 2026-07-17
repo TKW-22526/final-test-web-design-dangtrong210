@@ -301,6 +301,7 @@ function getProductDetailDataset() {
     }
   }
 }
+
 /* Đọc id sách hiện tại từ tham số ?id= trên URL, mặc định là 1 nếu không hợp lệ */
 function getCurrentBookId() {
   const params = new URLSearchParams(window.location.search);
