@@ -56,6 +56,11 @@ body.auth-body {
   padding: 2.5rem;
   border-radius: 16px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  max-width: 460px;
+}
+
+.login-box {
+  max-width: 420px;
 }
 
 /* ===== Input ===== */
@@ -132,10 +137,12 @@ body.auth-body {
 .password-strength .progress {
   border-radius: 4px;
   background-color: #eee;
+  height: 6px;
 }
 
 .password-strength .progress-bar {
   transition: width 0.3s ease, background-color 0.3s ease;
+  width: 0%;
 }
 
 /* ===== Ghi chú nhỏ dưới mật khẩu ===== */

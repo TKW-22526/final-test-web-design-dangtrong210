@@ -5,29 +5,25 @@
 /* Nếu đang ở trang chủ (có sẵn hàm filterBooksByKeyword từ index.js) thì lọc ngay tại chỗ. */
 /* Nếu đang ở trang khác thì chuyển hướng về trang chủ kèm từ khóa qua query string ?search= */
 
-const MAX_SUGGESTION_RESULTS = 6;
+const MAX_SUGGESTION_RESULTS = 10;
 
-/**
- * Trả về danh sách rút gọn của toàn bộ sách trong cửa hàng, dùng để gợi ý khi gõ tìm kiếm
- */
+/* Trả về danh sách rút gọn của toàn bộ sách trong cửa hàng, dùng để gợi ý khi gõ tìm kiếm */
 function getSearchSuggestionsData() {
   return [
-    { id: 1, title: "Nhà Giả Kim", author: "Paulo Coelho", image: "https://picsum.photos/seed/book1/60/84" },
-    { id: 2, title: "Đắc Nhân Tâm", author: "Dale Carnegie", image: "https://picsum.photos/seed/book2/60/84" },
-    { id: 3, title: "Tuổi Trẻ Đáng Giá Bao Nhiêu", author: "Rosie Nguyễn", image: "https://picsum.photos/seed/book3/60/84" },
-    { id: 4, title: "Sapiens: Lược Sử Loài Người", author: "Yuval Noah Harari", image: "https://picsum.photos/seed/book4/60/84" },
-    { id: 5, title: "Cây Cam Ngọt Của Tôi", author: "José Mauro de Vasconcelos", image: "https://picsum.photos/seed/book5/60/84" },
-    { id: 6, title: "Người Giàu Có Nhất Thành Babylon", author: "George S. Clason", image: "https://picsum.photos/seed/book6/60/84" },
-    { id: 7, title: "Tôi Tài Giỏi, Bạn Cũng Thế", author: "Adam Khoo", image: "https://picsum.photos/seed/book7/60/84" },
-    { id: 8, title: "Muôn Kiếp Nhân Sinh", author: "Nguyên Phong", image: "https://picsum.photos/seed/book8/60/84" },
-    { id: 9, title: "Atomic Habits", author: "James Clear", image: "https://picsum.photos/seed/book9/60/84" },
-    { id: 10, title: "Nghĩ Giàu Làm Giàu", author: "Napoleon Hill", image: "https://picsum.photos/seed/book10/60/84" },
+    { id: 1, title: "Nhà Giả Kim", author: "Paulo Coelho", image: "../assets/images/nha-gia-kim.jpg" },
+    { id: 2, title: "Đắc Nhân Tâm", author: "Dale Carnegie", image: "../assets/images/dac-nhan-tam.png" },
+    { id: 3, title: "Tuổi Trẻ Đáng Giá Bao Nhiêu", author: "Rosie Nguyễn", image: "../assets/images/tuoi-tre-dang-gia-bao-nhieu.jpg" },
+    { id: 4, title: "Số Đỏ", author: "Vũ Trọng Phụng", image: "../assets/images/so-do.jpg" },
+    { id: 5, title: "Sapiens: Lược Sử Loài Người", author: "Yuval Noah Harari", image: "../assets/images/sapiens-luoc-su-loai-nguoi.jpg" },
+    { id: 6, title: "Cà Phê Cùng Tony", author: "Tony Buổi Sáng", image: "../assets/images/ca-phe-cung-tony.jpg" },
+    { id: 7, title: "Người Giàu Có Nhất Thành Babylon", author: "George S. Clason", image: "../assets/images/người_giàu_có_nhất_thành_babylon.jpg" },
+    { id: 8, title: "Lược Sử Thời Gian", author: "Stephen Hawking", image: "../assets/images/luoc-su-thoi-gian.jpg" },
+    { id: 9, title: "Nhà Lãnh Đạo Không Chức Danh", author: "Robin Sharma", image: "../assets/images/nha-lanh-dao-khong-chuc-danh.jpg" },
+    { id: 10, title: "Muôn Kiếp Nhân Sinh", author: "Nguyên Phong", image: "../assets/images/muon-kiep-nhan-sinh.jpg" }
   ];
 }
 
-/**
- * Chuẩn hóa chuỗi để so khớp tìm kiếm: chữ thường, bỏ dấu tiếng Việt
- */
+/* Chuẩn hóa chuỗi để so khớp tìm kiếm: chữ thường, bỏ dấu tiếng Việt */
 function normalizeForSearch(text) {
   return text
     .toLowerCase()
@@ -37,9 +33,7 @@ function normalizeForSearch(text) {
     .trim();
 }
 
-/**
- * Tìm các sách có tên hoặc tác giả gần giống với từ khóa, trả về tối đa số lượng quy định
- */
+/* Tìm các sách có tên hoặc tác giả gần giống với từ khóa, trả về tối đa số lượng quy định */
 function getMatchingSuggestions(keyword) {
   const normalizedKeyword = normalizeForSearch(keyword);
   if (!normalizedKeyword) return [];
@@ -54,9 +48,7 @@ function getMatchingSuggestions(keyword) {
     .slice(0, MAX_SUGGESTION_RESULTS);
 }
 
-/**
- * Tạo đoạn HTML cho 1 dòng gợi ý trong dropdown
- */
+/* Tạo đoạn HTML cho 1 dòng gợi ý trong dropdown */
 function buildSuggestionItemHTML(book) {
   return `
     <button type="button" class="search-suggestion-item" data-title="${book.title}">
@@ -69,9 +61,7 @@ function buildSuggestionItemHTML(book) {
   `;
 }
 
-/**
- * Hiển thị dropdown gợi ý với danh sách sách phù hợp (hoặc thông báo không tìm thấy)
- */
+/* Hiển thị dropdown gợi ý với danh sách sách phù hợp (hoặc thông báo không tìm thấy) */
 function renderSuggestionsDropdown(matches) {
   const dropdown = document.getElementById("searchSuggestions");
   if (!dropdown) return;
@@ -84,9 +74,7 @@ function renderSuggestionsDropdown(matches) {
   dropdown.classList.remove("d-none");
 }
 
-/**
- * Ẩn dropdown gợi ý và xóa nội dung bên trong
- */
+/* Ẩn dropdown gợi ý và xóa nội dung bên trong */
 function hideSuggestionsDropdown() {
   const dropdown = document.getElementById("searchSuggestions");
   if (!dropdown) return;
@@ -94,16 +82,12 @@ function hideSuggestionsDropdown() {
   dropdown.innerHTML = "";
 }
 
-/**
- * Chuyển hướng về trang chủ kèm từ khóa tìm kiếm trên query string
- */
+/* Chuyển hướng về trang chủ kèm từ khóa tìm kiếm trên query string */
 function redirectToSearchResults(keyword) {
   window.location.href = keyword ? `../index.html?search=${encodeURIComponent(keyword)}` : "../index.html";
 }
 
-/**
- * Thực hiện tìm kiếm thật với từ khóa: lọc ngay nếu đang ở trang chủ, ngược lại chuyển hướng
- */
+/* Thực hiện tìm kiếm thật với từ khóa: lọc ngay nếu đang ở trang chủ, ngược lại chuyển hướng */
 function performSearch(keyword) {
   const trimmedKeyword = (keyword || "").trim();
 
@@ -114,9 +98,7 @@ function performSearch(keyword) {
   }
 }
 
-/**
- * Xử lý khi người dùng gõ vào ô tìm kiếm - hiện dần các gợi ý gần giống nhất
- */
+/* Xử lý khi người dùng gõ vào ô tìm kiếm - hiện dần các gợi ý gần giống nhất */
 function handleSearchInputTyping(event) {
   const keyword = event.target.value;
   if (!keyword.trim()) {
@@ -126,9 +108,7 @@ function handleSearchInputTyping(event) {
   renderSuggestionsDropdown(getMatchingSuggestions(keyword));
 }
 
-/**
- * Xử lý khi người dùng click chọn 1 gợi ý trong dropdown (event delegation)
- */
+/* Xử lý khi người dùng click chọn 1 gợi ý trong dropdown (event delegation) */
 function handleSuggestionItemClick(event) {
   const item = event.target.closest(".search-suggestion-item[data-title]");
   if (!item) return;
@@ -141,9 +121,7 @@ function handleSuggestionItemClick(event) {
   performSearch(title);
 }
 
-/**
- * Xử lý khi người dùng submit form tìm kiếm (nhấn Enter hoặc bấm icon kính lúp)
- */
+/* Xử lý khi người dùng submit form tìm kiếm (nhấn Enter hoặc bấm icon kính lúp) */
 function handleHeaderSearchSubmit(event) {
   event.preventDefault();
   const input = document.getElementById("searchInput");
@@ -153,9 +131,7 @@ function handleHeaderSearchSubmit(event) {
   performSearch(keyword);
 }
 
-/**
- * Đóng dropdown khi người dùng click ra ngoài khu vực tìm kiếm
- */
+/* Đóng dropdown khi người dùng click ra ngoài khu vực tìm kiếm */
 function handleDocumentClickForSearch(event) {
   const wrapper = document.querySelector(".search-wrapper");
   if (!wrapper) return;
@@ -164,18 +140,14 @@ function handleDocumentClickForSearch(event) {
   }
 }
 
-/**
- * Đóng dropdown khi người dùng nhấn phím Escape
- */
+/* Đóng dropdown khi người dùng nhấn phím Escape */
 function handleSearchInputKeydown(event) {
   if (event.key === "Escape") {
     hideSuggestionsDropdown();
   }
 }
 
-/**
- * Hàm khởi tạo chính - gắn toàn bộ sự kiện cho thanh tìm kiếm nếu trang hiện tại có form này
- */
+/* Hàm khởi tạo chính - gắn toàn bộ sự kiện cho thanh tìm kiếm nếu trang hiện tại có form này */
 function initHeaderSearch() {
   const searchForm = document.getElementById("searchForm");
   const searchInput = document.getElementById("searchInput");

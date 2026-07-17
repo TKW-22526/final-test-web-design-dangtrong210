@@ -50,6 +50,7 @@ body {
 /* ===== Khối tóm tắt đơn hàng ===== */
 .cart-summary-card {
   border-radius: 12px;
+  top: 90px;
 }
 
 .cart-summary-card .total-price {

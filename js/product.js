@@ -1,15 +1,13 @@
-/* ===== product.js - Xử lý tương tác trên trang mô tả chi tiết sách ===== */
-/* Toàn bộ hàm đều được khai báo có tên (named function), không dùng hàm ẩn danh khi gán event */
-/* Trang này dùng chung cho nhiều cuốn sách, xác định sách nào qua tham số ?id= trên URL.       */
-/* Ví dụ: product.html?id=2 sẽ hiển thị chi tiết cuốn sách có id = 2.                           */
+/* ===== product.js - Xử lý tương tác trên trang mô tả chi tiết sách ==== */
+/* Toàn bộ hàm đều được khai báo có tên (named function), không dùng hàm ẩn danh khi gán even */
+/* Trang này dùng chung cho nhiều cuốn sách, xác định sách nào qua tham số ?id= trên URL.      */
+/* Ví dụ: product.html?id=2 sẽ hiển thị chi tiết cuốn sách có id = 2.                          */
 
 let currentCartCount = 0; // Số lượng trong giỏ hàng (lưu tạm trong phiên làm việc)
 
-const PRODUCT_DETAIL_IDS = [1, 2, 3, 4, 5]; // Các id sách đã có trang mô tả chi tiết đầy đủ
+const PRODUCT_DETAIL_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Các id sách đã có trang mô tả chi tiết đầy đủ
 
-/**
- * Trả về toàn bộ dữ liệu chi tiết của những cuốn sách đã có trang mô tả riêng (id 1 - 5)
- */
+/* Trả về toàn bộ dữ liệu chi tiết của những cuốn sách đã có trang mô tả riêng (id 1 - 5) */
 function getProductDetailDataset() {
   return {
     1: {
@@ -19,28 +17,28 @@ function getProductDetailDataset() {
       category: "Tiểu thuyết",
       price: 79000,
       oldPrice: 99000,
+      rating: 4.8,
+      reviewCount: 326,
+      sold: 1200,
       publisher: "NXB Hội Nhà Văn",
       publishYear: 2020,
       pages: 228,
       format: "Bìa mềm",
       weight: "250g",
       language: "Tiếng Việt",
-      mainImage: "https://picsum.photos/seed/book1main/500/620",
+      mainImage: "../assets/images/nha-gia-kim.jpg",
       thumbnails: [
-        "https://picsum.photos/seed/book1main/500/620",
-        "https://picsum.photos/seed/book1back/500/620",
-        "https://picsum.photos/seed/book1inside1/500/620",
-        "https://picsum.photos/seed/book1inside2/500/620",
+        ""
       ],
-      description:
-        "Nhà Giả Kim kể về cuộc hành trình của chàng chăn cừu Santiago, người rời bỏ vùng đồng cỏ quen thuộc ở Andalusia để đi tìm một giấc mơ về kho báu ẩn giấu nơi vùng kim tự tháp Ai Cập. Trên đường đi, Santiago gặp gỡ nhiều con người và trải nghiệm nhiều biến cố giúp anh hiểu được ngôn ngữ của vũ trụ và ý nghĩa thật sự của vận mệnh bản thân. Cuốn sách là một ngụ ngôn giàu chất thơ về việc lắng nghe trái tim, theo đuổi đam mê và tin tưởng vào hành trình của chính mình.",
+      description: "Nhà Giả Kim kể về cuộc hành trình của chàng chăn cừu Santiago, người rời bỏ vùng đồng cỏ quen thuộc ở Andalusia để đi tìm một giấc mơ về kho báu ẩn giấu nơi vùng kim tự tháp Ai Cập. Trên đường đi, Santiago gặp gỡ nhiều con người và trải nghiệm nhiều biến cố giúp anh hiểu được ngôn ngữ của vũ trụ và ý nghĩa thật sự của vận mệnh bản thân. Cuốn sách là một ngụ ngôn giàu chất thơ về việc lắng nghe trái tim, theo đuổi đam mê và tin tưởng vào hành trình của chính mình.",
       highlights: [
         "Tác phẩm bán hơn 65 triệu bản trên toàn thế giới",
         "Được dịch sang hơn 80 ngôn ngữ khác nhau",
         "Một trong những cuốn sách truyền cảm hứng nhất mọi thời đại",
-        "Phù hợp cho người muốn tìm động lực và định hướng cuộc sống",
-      ],
+        "Phù hợp cho người muốn tìm động lực và định hướng cuộc sống"
+      ]
     },
+
     2: {
       id: 2,
       title: "Đắc Nhân Tâm",
@@ -48,154 +46,287 @@ function getProductDetailDataset() {
       category: "Kỹ năng sống",
       price: 86000,
       oldPrice: 108000,
+      rating: 4.9,
+      reviewCount: 512,
+      sold: 3400,
       publisher: "NXB Tổng hợp TP.HCM",
       publishYear: 2019,
       pages: 320,
       format: "Bìa mềm",
-      weight: "350g",
+      weight: "300g",
       language: "Tiếng Việt",
-      mainImage: "https://picsum.photos/seed/book2main/500/620",
+      mainImage: "../assets/images/dac-nhan-tam.png",
       thumbnails: [
-        "https://picsum.photos/seed/book2main/500/620",
-        "https://picsum.photos/seed/book2back/500/620",
-        "https://picsum.photos/seed/book2inside1/500/620",
-        "https://picsum.photos/seed/book2inside2/500/620",
+        ""
       ],
-      description:
-        "Đắc Nhân Tâm tổng hợp những nguyên tắc ứng xử và giao tiếp giúp xây dựng mối quan hệ tốt đẹp với mọi người xung quanh. Tác giả Dale Carnegie chỉ ra cách lắng nghe, khen ngợi chân thành, nhìn nhận vấn đề từ góc độ của người khác và truyền cảm hứng thay vì áp đặt. Đây là một trong những cuốn sách kỹ năng sống kinh điển, được nhiều thế hệ độc giả tin dùng để cải thiện khả năng giao tiếp và xây dựng các mối quan hệ bền vững trong công việc cũng như cuộc sống.",
+      description: "Đắc Nhân Tâm là cuốn sách nổi tiếng nhất mọi thời đại về nghệ thuật giao tiếp và đối nhân xử thế. Dale Carnegie đúc kết những nguyên tắc vàng giúp người đọc chinh phục lòng người, xây dựng mối quan hệ bền vững và đạt được thành công trong công việc lẫn cuộc sống.",
       highlights: [
-        "Sách kỹ năng sống bán chạy nhất mọi thời đại",
-        "Được dịch ra hàng chục ngôn ngữ trên thế giới",
-        "Áp dụng được cho công việc, gia đình và các mối quan hệ xã hội",
-        "Trình bày dễ hiểu qua nhiều câu chuyện thực tế",
-      ],
+        "Hơn 30 triệu bản được bán ra trên toàn thế giới",
+        "Được xem là cuốn sách self-help kinh điển nhất mọi thời đại",
+        "Đúc kết từ hàng nghìn khóa học thực tế của tác giả",
+        "Ứng dụng được trong công việc, gia đình và các mối quan hệ xã hội"
+      ]
     },
+
     3: {
       id: 3,
       title: "Tuổi Trẻ Đáng Giá Bao Nhiêu",
       author: "Rosie Nguyễn",
       category: "Kỹ năng sống",
-      price: 75000,
-      oldPrice: 95000,
+      price: 72000,
+      oldPrice: 90000,
+      rating: 4.6,
+      reviewCount: 289,
+      sold: 1800,
       publisher: "NXB Hội Nhà Văn",
-      publishYear: 2018,
-      pages: 263,
+      publishYear: 2016,
+      pages: 288,
       format: "Bìa mềm",
-      weight: "280g",
+      weight: "260g",
       language: "Tiếng Việt",
-      mainImage: "https://picsum.photos/seed/book3main/500/620",
+      mainImage: "../assets/images/tuoi-tre-dang-gia-bao-nhieu.jpg",
       thumbnails: [
-        "https://picsum.photos/seed/book3main/500/620",
-        "https://picsum.photos/seed/book3back/500/620",
-        "https://picsum.photos/seed/book3inside1/500/620",
-        "https://picsum.photos/seed/book3inside2/500/620",
+        ""
       ],
-      description:
-        "Cuốn sách là những chia sẻ chân thành của tác giả Rosie Nguyễn dành cho các bạn trẻ Việt Nam về chuyện học tập, làm việc, đi và trải nghiệm. Nội dung xoay quanh việc đầu tư cho bản thân, dám bước ra khỏi vùng an toàn, rèn luyện kỹ năng sống cần thiết và xác định giá trị của tuổi trẻ trước khi nó trôi qua. Cuốn sách phù hợp với sinh viên và người trẻ đang tìm kiếm động lực, định hướng cho con đường phát triển của riêng mình.",
+      description: "Cuốn sách chia sẻ những trải nghiệm và bài học của tác giả về hành trình tuổi trẻ: học tập, làm việc, du lịch bụi và khám phá bản thân. Tác phẩm truyền cảm hứng cho người trẻ dám sống hết mình và không ngừng học hỏi.",
       highlights: [
-        "Tác phẩm gối đầu của nhiều thế hệ sinh viên Việt Nam",
-        "Chia sẻ kinh nghiệm thực tế về học tập và trải nghiệm",
-        "Văn phong gần gũi, dễ đọc, nhiều câu chuyện truyền cảm hứng",
-        "Phù hợp với độc giả từ 16 đến 25 tuổi",
-      ],
+        "Sách gối đầu giường của nhiều thế hệ độc giả trẻ Việt Nam",
+        "Chia sẻ kinh nghiệm thực tế từ hành trình du lịch bụi của tác giả",
+        "Truyền cảm hứng học tập suốt đời và dấn thân trải nghiệm",
+        "Phù hợp cho học sinh, sinh viên đang định hướng tương lai"
+      ]
     },
+
     4: {
       id: 4,
+      title: "Số Đỏ",
+      author: "Vũ Trọng Phụng",
+      category: "Tiểu thuyết",
+      price: 65000,
+      oldPrice: 80000,
+      rating: 4.7,
+      reviewCount: 198,
+      sold: 950,
+      publisher: "NXB Văn Học",
+      publishYear: 2018,
+      pages: 250,
+      format: "Bìa mềm",
+      weight: "220g",
+      language: "Tiếng Việt",
+      mainImage: "../assets/images/so-do.jpg",
+      thumbnails: [
+        ""
+      ],
+      description: "Số Đỏ là tiểu thuyết trào phúng kinh điển của Vũ Trọng Phụng, khắc họa xã hội thực dân nửa phong kiến qua nhân vật Xuân Tóc Đỏ. Tác phẩm phê phán sâu sắc thói học đòi, giả dối của tầng lớp thượng lưu đương thời.",
+      highlights: [
+        "Tác phẩm kinh điển của văn học hiện thực phê phán Việt Nam",
+        "Được đưa vào chương trình giảng dạy phổ thông",
+        "Nghệ thuật trào phúng bậc thầy, giàu tính thời sự",
+        "Nhân vật Xuân Tóc Đỏ trở thành biểu tượng văn học nổi tiếng"
+      ]
+    },
+
+    5: {
+      id: 5,
       title: "Sapiens: Lược Sử Loài Người",
       author: "Yuval Noah Harari",
       category: "Khoa học",
-      price: 189000,
-      oldPrice: 229000,
-      publisher: "NXB Thế Giới",
-      publishYear: 2021,
+      price: 199000,
+      oldPrice: 249000,
+      rating: 4.8,
+      reviewCount: 620,
+      sold: 2500,
+      publisher: "NXB Tri Thức",
+      publishYear: 2017,
       pages: 588,
-      format: "Bìa cứng",
-      weight: "620g",
-      language: "Tiếng Việt",
-      mainImage: "https://picsum.photos/seed/book4main/500/620",
-      thumbnails: [
-        "https://picsum.photos/seed/book4main/500/620",
-        "https://picsum.photos/seed/book4back/500/620",
-        "https://picsum.photos/seed/book4inside1/500/620",
-        "https://picsum.photos/seed/book4inside2/500/620",
-      ],
-      description:
-        "Sapiens đưa người đọc đi qua hành trình hơn 70.000 năm tiến hóa của loài người, từ những bộ lạc săn bắt hái lượm nhỏ bé cho đến nền văn minh công nghệ hiện đại. Yuval Noah Harari phân tích vai trò của cách mạng nhận thức, cách mạng nông nghiệp và cách mạng khoa học trong việc định hình xã hội loài người, đồng thời đặt ra nhiều câu hỏi sâu sắc về hạnh phúc, đạo đức và tương lai của nhân loại trong thời đại trí tuệ nhân tạo và công nghệ sinh học.",
-      highlights: [
-        "Hiện tượng xuất bản toàn cầu, dịch sang hơn 60 ngôn ngữ",
-        "Được nhiều nhân vật nổi tiếng trong giới công nghệ giới thiệu",
-        "Góc nhìn liên ngành giữa lịch sử, sinh học và xã hội học",
-        "Phù hợp với người yêu thích sách khoa học phổ thông",
-      ],
-    },
-    5: {
-      id: 5,
-      title: "Cây Cam Ngọt Của Tôi",
-      author: "José Mauro de Vasconcelos",
-      category: "Tiểu thuyết",
-      price: 88000,
-      oldPrice: 110000,
-      publisher: "NXB Hội Nhà Văn",
-      publishYear: 2020,
-      pages: 244,
       format: "Bìa mềm",
-      weight: "270g",
+      weight: "450g",
       language: "Tiếng Việt",
-      mainImage: "https://picsum.photos/seed/book5main/500/620",
+      mainImage: "../assets/images/sapiens-luoc-su-loai-nguoi.jpg",
       thumbnails: [
-        "https://picsum.photos/seed/book5main/500/620",
-        "https://picsum.photos/seed/book5back/500/620",
-        "https://picsum.photos/seed/book5inside1/500/620",
-        "https://picsum.photos/seed/book5inside2/500/620",
+        ""
       ],
-      description:
-        "Cuốn tiểu thuyết bán tự truyện kể về Zezé, một cậu bé nghèo sống ở vùng ngoại ô Brazil, với tâm hồn nhạy cảm và trí tưởng tượng phong phú vượt xa tuổi của mình. Người bạn đặc biệt nhất của Zezé là một cây cam non mà cậu đặt tên là Bồ Đào Nha, nơi cậu trút bầu tâm sự mỗi khi buồn tủi giữa cuộc sống thiếu thốn tình thương. Câu chuyện chạm đến trái tim người đọc bằng sự hồn nhiên, nỗi đau và cả những bài học về tình yêu thương trong những năm tháng đầu đời.",
+      description: "Sapiens đưa người đọc qua hành trình 70.000 năm tiến hóa của loài người, từ những bộ lạc săn bắt hái lượm đến nền văn minh công nghệ hiện đại. Harari phân tích cách ngôn ngữ, tôn giáo và tiền bạc định hình xã hội loài người.",
       highlights: [
-        "Một trong những tiểu thuyết được yêu thích nhất của văn học Brazil",
-        "Câu chuyện cảm động về tuổi thơ và tình thân",
-        "Văn phong giản dị nhưng giàu cảm xúc",
-        "Phù hợp với độc giả yêu thích những câu chuyện ấm áp, chân thực",
-      ],
+        "Sách bán chạy toàn cầu, dịch ra hơn 65 ngôn ngữ",
+        "Được nhiều nhân vật nổi tiếng như Bill Gates, Obama giới thiệu",
+        "Góc nhìn liên ngành giữa lịch sử, sinh học và triết học",
+        "Thay đổi cách nhìn của độc giả về lịch sử loài người"
+      ]
     },
-  };
-}
 
-/**
- * Đọc id sách hiện tại từ tham số ?id= trên URL, mặc định là 1 nếu không hợp lệ
- */
+    6: {
+      id: 6,
+      title: "Cà Phê Cùng Tony",
+      author: "Tony Buổi Sáng",
+      category: "Kỹ năng sống",
+      price: 60000,
+      oldPrice: 75000,
+      rating: 4.5,
+      reviewCount: 340,
+      sold: 2100,
+      publisher: "NXB Trẻ",
+      publishYear: 2014,
+      pages: 264,
+      format: "Bìa mềm",
+      weight: "230g",
+      language: "Tiếng Việt",
+      mainImage: "../assets/images/ca-phe-cung-tony.jpg",
+      thumbnails: [
+        ""
+      ],
+      description: "Tập hợp những bài viết ngắn gọn, hài hước nhưng sâu sắc của Tony Buổi Sáng về khởi nghiệp, hội nhập và tư duy toàn cầu. Cuốn sách truyền cảm hứng cho giới trẻ Việt Nam vươn ra thế giới.",
+      highlights: [
+        "Từng gây sốt cộng đồng mạng với văn phong hài hước, gần gũi",
+        "Truyền cảm hứng khởi nghiệp và hội nhập quốc tế",
+        "Nội dung ngắn gọn, dễ đọc, phù hợp đọc nhanh mỗi ngày",
+        "Khuyến khích tư duy độc lập và tinh thần tự lập"
+      ]
+    },
+
+    7: {
+      id: 7,
+      title: "Người Giàu Có Nhất Thành Babylon",
+      author: "George S. Clason",
+      category: "Tài chính",
+      price: 68000,
+      oldPrice: 85000,
+      rating: 4.7,
+      reviewCount: 275,
+      sold: 1650,
+      publisher: "NXB Lao Động",
+      publishYear: 2020,
+      pages: 200,
+      format: "Bìa mềm",
+      weight: "200g",
+      language: "Tiếng Việt",
+      mainImage: "../assets/images/người_giàu_có_nhất_thành_babylon.jpg",
+      thumbnails: [
+        ""
+      ],
+      description: "Thông qua những câu chuyện ngụ ngôn lấy bối cảnh thành Babylon cổ đại, tác giả truyền tải các nguyên tắc quản lý tài chính cá nhân và tích lũy của cải bền vững, vẫn còn nguyên giá trị đến ngày nay.",
+      highlights: [
+        "Một trong những cuốn sách tài chính cá nhân kinh điển nhất",
+        "Nguyên tắc quản lý tiền bạc đơn giản, dễ áp dụng",
+        "Hình thức ngụ ngôn dễ tiếp cận với mọi đối tượng độc giả",
+        "Vẫn còn nguyên giá trị dù xuất bản lần đầu gần 100 năm trước"
+      ]
+    },
+
+    8: {
+      id: 8,
+      title: "Lược Sử Thời Gian",
+      author: "Stephen Hawking",
+      category: "Khoa học",
+      price: 108000,
+      oldPrice: 135000,
+      rating: 4.7,
+      reviewCount: 241,
+      sold: 1100,
+      publisher: "NXB Trẻ",
+      publishYear: 2019,
+      pages: 256,
+      format: "Bìa mềm",
+      weight: "260g",
+      language: "Tiếng Việt",
+      mainImage: "../assets/images/luoc-su-thoi-gian.jpg",
+      thumbnails: [
+        ""
+      ],
+      description: "Stephen Hawking giải thích những khái niệm phức tạp nhất của vũ trụ học - từ Big Bang, hố đen đến bản chất thời gian - bằng ngôn ngữ dễ hiểu cho độc giả phổ thông. Đây là một trong những cuốn sách khoa học phổ thông bán chạy nhất mọi thời đại.",
+      highlights: [
+        "Bán hơn 10 triệu bản trên toàn thế giới",
+        "Giải thích vũ trụ học phức tạp bằng ngôn ngữ dễ hiểu",
+        "Viết bởi một trong những nhà vật lý vĩ đại nhất thế kỷ 20",
+        "Phù hợp cho người mới bắt đầu tìm hiểu về vũ trụ"
+      ]
+    },
+
+    9: {
+      id: 9,
+      title: "Nhà Lãnh Đạo Không Chức Danh",
+      author: "Robin Sharma",
+      category: "Kỹ năng sống",
+      price: 95000,
+      oldPrice: 120000,
+      rating: 4.6,
+      reviewCount: 214,
+      sold: 1300,
+      publisher: "NXB Trẻ",
+      publishYear: 2021,
+      pages: 264,
+      format: "Bìa mềm",
+      weight: "240g",
+      language: "Tiếng Việt",
+      mainImage: "../assets/images/nha-lanh-dao-khong-chuc-danh.jpg",
+      thumbnails: [
+        ""
+      ],
+      description: "Cuốn sách khẳng định ai cũng có thể trở thành lãnh đạo trong lĩnh vực của mình, không cần chức danh hay vị trí cao. Qua câu chuyện kể, Robin Sharma truyền đạt các nguyên tắc lãnh đạo bản thân và tạo ảnh hưởng tích cực.",
+      highlights: [
+        "Tác giả sách self-help nổi tiếng với 'Vị tu sĩ bán chiếc Ferrari'",
+        "Truyền cảm hứng phát triển tư duy lãnh đạo bản thân",
+        "Được viết dưới dạng câu chuyện dễ đọc, dễ tiếp thu",
+        "Phù hợp cho người đi làm muốn tạo ảnh hưởng tích cực"
+      ]
+    },
+
+    10: {
+      id: 10,
+      title: "Muôn Kiếp Nhân Sinh",
+      author: "Nguyên Phong",
+      category: "Tâm linh",
+      price: 145000,
+      oldPrice: 180000,
+      rating: 4.9,
+      reviewCount: 387,
+      sold: 2900,
+      publisher: "NXB Tổng hợp TP.HCM",
+      publishYear: 2020,
+      pages: 396,
+      format: "Bìa mềm",
+      weight: "380g",
+      language: "Tiếng Việt",
+      mainImage: "../assets/images/muon-kiep-nhan-sinh.jpg",
+      thumbnails: [
+        ""
+      ],
+      description: "Cuốn sách kể lại hành trình khám phá tiền kiếp của doanh nhân Thomas qua các buổi thôi miên hồi quy, hé lộ những bài học về nhân quả, luân hồi và ý nghĩa cuộc sống. Tác phẩm kết hợp giữa trải nghiệm tâm linh và tư duy khoa học.",
+      highlights: [
+        "Sách bán chạy nhất năm 2020 tại Việt Nam",
+        "Kết hợp giữa trải nghiệm tâm linh và góc nhìn khoa học",
+        "Nội dung sâu sắc về nhân quả, luân hồi và ý nghĩa cuộc sống",
+        "Có phần 2 'Muôn Kiếp Nhân Sinh 2' tiếp nối câu chuyện"
+      ]
+    }
+  }
+}
+/* Đọc id sách hiện tại từ tham số ?id= trên URL, mặc định là 1 nếu không hợp lệ */
 function getCurrentBookId() {
   const params = new URLSearchParams(window.location.search);
   const id = Number(params.get("id"));
   return Number.isInteger(id) && PRODUCT_DETAIL_IDS.includes(id) ? id : 1;
 }
 
-/**
- * Trả về dữ liệu chi tiết của cuốn sách đang được xem dựa trên id hiện tại
- */
+/* Trả về dữ liệu chi tiết của cuốn sách đang được xem dựa trên id hiện tại */
 function getBookDetailData() {
   const dataset = getProductDetailDataset();
   return dataset[getCurrentBookId()];
 }
 
-/**
- * Định dạng số tiền theo chuẩn VND
- */
+/* Định dạng số tiền theo chuẩn VND */
 function formatCurrency(value) {
   return value.toLocaleString("vi-VN") + "đ";
 }
 
-/**
- * Tính phần trăm giảm giá dựa trên giá gốc và giá bán
- */
+/* Tính phần trăm giảm giá dựa trên giá gốc và giá bán */
 function calculateDiscountPercent(price, oldPrice) {
   if (!oldPrice || oldPrice <= price) return 0;
   return Math.round(((oldPrice - price) / oldPrice) * 100);
 }
 
 
-/**
- * Đổ dữ liệu sách vào các phần tử HTML tương ứng trên trang
- */
+/* Đổ dữ liệu sách vào các phần tử HTML tương ứng trên trang */
 function renderProductInfo() {
   const book = getBookDetailData();
 
@@ -240,29 +371,25 @@ function renderProductInfo() {
   `;
 }
 
-/**
- * Trả về dữ liệu rút gọn của toàn bộ 10 cuốn sách trong cửa hàng (đồng bộ với index.js),
- * dùng để chọn ra các sách gợi ý trong khu vực "Sản phẩm tương tự"
- */
+/* Trả về dữ liệu rút gọn của toàn bộ 10 cuốn sách trong cửa hàng (đồng bộ với index.js),
+ * dùng để chọn ra các sách gợi ý trong khu vực "Sản phẩm tương tự" */
 function getFullBookCatalog() {
   return [
-    { id: 1, title: "Nhà Giả Kim", author: "Paulo Coelho", category: "Tiểu thuyết", price: 79000, oldPrice: 99000, image: "https://picsum.photos/seed/book1/300/420" },
-    { id: 2, title: "Đắc Nhân Tâm", author: "Dale Carnegie", category: "Kỹ năng sống", price: 86000, oldPrice: 108000, image: "https://picsum.photos/seed/book2/300/420" },
-    { id: 3, title: "Tuổi Trẻ Đáng Giá Bao Nhiêu", author: "Rosie Nguyễn", category: "Kỹ năng sống", price: 75000, oldPrice: 95000, image: "https://picsum.photos/seed/book3/300/420" },
-    { id: 4, title: "Sapiens: Lược Sử Loài Người", author: "Yuval Noah Harari", category: "Khoa học", price: 189000, oldPrice: 229000, image: "https://picsum.photos/seed/book4/300/420" },
-    { id: 5, title: "Cây Cam Ngọt Của Tôi", author: "José Mauro de Vasconcelos", category: "Tiểu thuyết", price: 88000, oldPrice: 110000, image: "https://picsum.photos/seed/book5/300/420" },
-    { id: 6, title: "Người Giàu Có Nhất Thành Babylon", author: "George S. Clason", category: "Tài chính", price: 65000, oldPrice: 80000, image: "https://picsum.photos/seed/book6/300/420" },
-    { id: 7, title: "Tôi Tài Giỏi, Bạn Cũng Thế", author: "Adam Khoo", category: "Kỹ năng sống", price: 99000, oldPrice: 120000, image: "https://picsum.photos/seed/book7/300/420" },
-    { id: 8, title: "Muôn Kiếp Nhân Sinh", author: "Nguyên Phong", category: "Tâm linh", price: 135000, oldPrice: 165000, image: "https://picsum.photos/seed/book8/300/420" },
-    { id: 9, title: "Atomic Habits", author: "James Clear", category: "Kỹ năng sống", price: 159000, oldPrice: 189000, image: "https://picsum.photos/seed/book9/300/420" },
-    { id: 10, title: "Nghĩ Giàu Làm Giàu", author: "Napoleon Hill", category: "Tài chính", price: 95000, oldPrice: 115000, image: "https://picsum.photos/seed/book10/300/420" },
+    { id: 1, title: "Nhà Giả Kim", author: "Paulo Coelho", category: "Tiểu thuyết", price: 79000, oldPrice: 99000, rating: 4.8, image: "../assets/images/nha-gia-kim.jpg" },
+    { id: 2, title: "Đắc Nhân Tâm", author: "Dale Carnegie", category: "Kỹ năng sống", price: 86000, oldPrice: 108000, rating: 4.9, image: "../assets/images/dac-nhan-tam.png" },
+    { id: 3, title: "Tuổi Trẻ Đáng Giá Bao Nhiêu", author: "Rosie Nguyễn", category: "Kỹ năng sống", price: 72000, oldPrice: 90000, rating: 4.6, image: "../assets/images/tuoi-tre-dang-gia-bao-nhieu.jpg" },
+    { id: 4, title: "Số Đỏ", author: "Vũ Trọng Phụng", category: "Tiểu thuyết", price: 65000, oldPrice: 80000, rating: 4.7, image: "../assets/images/so-do.jpg" },
+    { id: 5, title: "Sapiens: Lược Sử Loài Người", author: "Yuval Noah Harari", category: "Khoa học", price: 199000, oldPrice: 249000, rating: 4.8, image: "../assets/images/sapiens-luoc-su-loai-nguoi.jpg" },
+    { id: 6, title: "Cà Phê Cùng Tony", author: "Tony Buổi Sáng", category: "Kỹ năng sống", price: 60000, oldPrice: 75000, rating: 4.5, image: "../assets/images/ca-phe-cung-tony.jpg" },
+    { id: 7, title: "Người Giàu Có Nhất Thành Babylon", author: "George S. Clason", category: "Tài chính", price: 68000, oldPrice: 85000, rating: 4.7, image: "../assets/images/người_giàu_có_nhất_thành_babylon.jpg" },
+    { id: 8, title: "Lược Sử Thời Gian", author: "Stephen Hawking", category: "Khoa học", price: 108000, oldPrice: 135000, rating: 4.7, image: "../assets/images/luoc-su-thoi-gian.jpg" },
+    { id: 9, title: "Nhà Lãnh Đạo Không Chức Danh", author: "Robin Sharma", category: "Kỹ năng sống", price: 95000, oldPrice: 120000, rating: 4.6, image: "../assets/images/nha-lanh-dao-khong-chuc-danh.jpg" },
+    { id: 10, title: "Muôn Kiếp Nhân Sinh", author: "Nguyên Phong", category: "Tâm linh", price: 145000, oldPrice: 180000, rating: 4.9, image: "../assets/images/muon-kiep-nhan-sinh.jpg" }
   ];
 }
 
-/**
- * Chọn ra 4 sách gợi ý cho khu vực "Sản phẩm tương tự", loại trừ sách đang xem,
- * ưu tiên những sách đã có trang mô tả chi tiết để người dùng bấm vào xem ngay được
- */
+/* Chọn ra 4 sách gợi ý cho khu vực "Sản phẩm tương tự", loại trừ sách đang xem,
+ * ưu tiên những sách đã có trang mô tả chi tiết để người dùng bấm vào xem ngay được */
 function getRelatedBooksData(currentId) {
   const otherBooks = getFullBookCatalog().filter((book) => book.id !== currentId);
   const withDetailPage = otherBooks.filter((book) => PRODUCT_DETAIL_IDS.includes(book.id));
@@ -270,9 +397,7 @@ function getRelatedBooksData(currentId) {
   return [...withDetailPage, ...withoutDetailPage].slice(0, 4);
 }
 
-/**
- * Tạo đoạn HTML cho 1 thẻ sách trong khu vực "Sản phẩm tương tự"
- */
+/* Tạo đoạn HTML cho 1 thẻ sách trong khu vực "Sản phẩm tương tự" */
 function createRelatedBookCardHTML(book) {
   const discount = calculateDiscountPercent(book.price, book.oldPrice);
   return `
@@ -299,9 +424,7 @@ function createRelatedBookCardHTML(book) {
   `;
 }
 
-/**
- * Render danh sách "Sản phẩm tương tự" vào khu vực #relatedBooksContainer
- */
+/* Render danh sách "Sản phẩm tương tự" vào khu vực #relatedBooksContainer */
 function renderRelatedBooks() {
   const currentBookId = getCurrentBookId();
   const relatedBooks = getRelatedBooksData(currentBookId);
@@ -309,10 +432,8 @@ function renderRelatedBooks() {
   container.innerHTML = relatedBooks.map(createRelatedBookCardHTML).join("");
 }
 
-/**
- * Chuyển sang trang chi tiết của 1 sách tương tự được chọn
- * Hiện tại các sách có id nằm trong PRODUCT_DETAIL_IDS đã có trang mô tả riêng
- */
+/* Chuyển sang trang chi tiết của 1 sách tương tự được chọn
+ * Hiện tại các sách có id nằm trong PRODUCT_DETAIL_IDS đã có trang mô tả riêng */
 function goToRelatedBookDetail(bookId) {
   const id = Number(bookId);
   if (PRODUCT_DETAIL_IDS.includes(id)) {
@@ -322,9 +443,7 @@ function goToRelatedBookDetail(bookId) {
   }
 }
 
-/**
- * Xử lý sự kiện click vào nút "Xem chi tiết" trong khu vực sách tương tự (event delegation)
- */
+/* Xử lý sự kiện click vào nút "Xem chi tiết" trong khu vực sách tương tự (event delegation) */
 function handleRelatedBooksClick(event) {
   const target = event.target.closest("button[data-id]");
   if (!target) return;
@@ -332,52 +451,38 @@ function handleRelatedBooksClick(event) {
 }
 
 
-/**
- * Lấy giá trị số lượng hiện tại từ ô input
- */
+/* Lấy giá trị số lượng hiện tại từ ô input */
 function getCurrentQuantity() {
   return Number(document.getElementById("quantityInput").value) || 1;
 }
 
-/**
- * Cập nhật ô input số lượng với giá trị mới (đảm bảo >= 1)
- */
+/* Cập nhật ô input số lượng với giá trị mới (đảm bảo >= 1) */
 function setQuantity(value) {
   const safeValue = Math.max(1, value);
   document.getElementById("quantityInput").value = safeValue;
 }
 
-/**
- * Tăng số lượng lên 1
- */
+/* Tăng số lượng lên 1 */
 function increaseQuantity() {
   setQuantity(getCurrentQuantity() + 1);
 }
 
-/**
- * Giảm số lượng xuống 1 (không nhỏ hơn 1)
- */
+/* Giảm số lượng xuống 1 (không nhỏ hơn 1) */
 function decreaseQuantity() {
   setQuantity(getCurrentQuantity() - 1);
 }
 
-/**
- * Xử lý khi người dùng tự gõ số lượng vào ô input
- */
+/* Xử lý khi người dùng tự gõ số lượng vào ô input */
 function handleQuantityInputChange() {
   setQuantity(getCurrentQuantity());
 }
 
-/**
- * Cập nhật số hiển thị trên icon giỏ hàng
- */
+/* Cập nhật số hiển thị trên icon giỏ hàng */
 function updateCartBadge(count) {
   document.getElementById("cartCount").textContent = count;
 }
 
-/**
- * Xử lý khi người dùng bấm "Thêm vào giỏ hàng"
- */
+/* Xử lý khi người dùng bấm "Thêm vào giỏ hàng" */
 function handleAddToCart() {
   const book = getBookDetailData();
   const quantity = getCurrentQuantity();
@@ -386,9 +491,7 @@ function handleAddToCart() {
   alert(`Đã thêm ${quantity} cuốn "${book.title}" vào giỏ hàng!`);
 }
 
-/**
- * Xử lý khi người dùng bấm "Mua ngay"
- */
+/* Xử lý khi người dùng bấm "Mua ngay" */
 function handleBuyNow() {
   const book = getBookDetailData();
   const quantity = getCurrentQuantity();
@@ -396,9 +499,7 @@ function handleBuyNow() {
   alert(`Đặt mua thành công ${quantity} cuốn "${book.title}".\nTổng tiền: ${total}`);
 }
 
-/**
- * Đổi ảnh chính khi người dùng bấm vào một ảnh thu nhỏ
- */
+/* Đổi ảnh chính khi người dùng bấm vào một ảnh thu nhỏ */
 function handleThumbnailClick(event) {
   const target = event.target.closest(".thumb-img");
   if (!target) return;
@@ -409,9 +510,7 @@ function handleThumbnailClick(event) {
   target.classList.add("active-thumb");
 }
 
-/**
- * Chuyển đổi giữa các tab: mô tả / thông số / đánh giá
- */
+/* Chuyển đổi giữa các tab: mô tả / thông số / đánh giá */
 function switchTab(tabName) {
   document.querySelectorAll(".nav-tabs .nav-link").forEach((link) => link.classList.remove("active"));
   document.querySelectorAll(".tab-pane").forEach((pane) => pane.classList.remove("active"));
@@ -420,18 +519,14 @@ function switchTab(tabName) {
   document.getElementById(`tab-${tabName}`).classList.add("active");
 }
 
-/**
- * Xử lý sự kiện click vào thanh tab (event delegation)
- */
+/* Xử lý sự kiện click vào thanh tab (event delegation) */
 function handleTabClick(event) {
   const target = event.target.closest(".nav-link[data-tab]");
   if (!target) return;
   switchTab(target.dataset.tab);
 }
 
-/**
- * Hàm khởi tạo chính của trang mô tả sản phẩm - chạy khi DOM đã tải xong
- */
+/* Hàm khởi tạo chính của trang mô tả sản phẩm - chạy khi DOM đã tải xong */
 function initProductPage() {
   renderProductInfo();
   renderRelatedBooks();

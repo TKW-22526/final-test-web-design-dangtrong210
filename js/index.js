@@ -1,127 +1,38 @@
-/* ===== index.js - Sinh danh sách sách & xử lý tương tác trang chủ ===== */
-/* Toàn bộ hàm đều được khai báo có tên (named function), không dùng hàm ẩn danh khi gán event */
+/*  ===== index.js - Sinh danh sách sách & xử lý tương tác trang chủ ==== */
 
 let cartTotalCount = 0; // Biến lưu số lượng sách trong giỏ hàng (chỉ lưu tạm trong phiên làm việc)
 
-const PRODUCT_DETAIL_IDS = [1, 2, 3, 4, 5]; // Các id sách đã có trang mô tả chi tiết đầy đủ
+const PRODUCT_DETAIL_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Các id sách đã có trang mô tả chi tiết đầy đủ
 
-/**
- * Trả về dữ liệu mẫu cho 10 cuốn sách đầu tiên của cửa hàng
- */
+/* Trả về dữ liệu mẫu cho 10 cuốn sách đầu tiên của cửa hàng */
 function getBookData() {
   return [
-    {
-      id: 1,
-      title: "Nhà Giả Kim",
-      author: "Paulo Coelho",
-      category: "Tiểu thuyết",
-      price: 79000,
-      oldPrice: 99000,
-      image: "https://picsum.photos/seed/book1/300/420",
-    },
-    {
-      id: 2,
-      title: "Đắc Nhân Tâm",
-      author: "Dale Carnegie",
-      category: "Kỹ năng sống",
-      price: 86000,
-      oldPrice: 108000,
-      image: "https://picsum.photos/seed/book2/300/420",
-    },
-    {
-      id: 3,
-      title: "Tuổi Trẻ Đáng Giá Bao Nhiêu",
-      author: "Rosie Nguyễn",
-      category: "Kỹ năng sống",
-      price: 75000,
-      oldPrice: 95000,
-      image: "https://picsum.photos/seed/book3/300/420",
-    },
-    {
-      id: 4,
-      title: "Sapiens: Lược Sử Loài Người",
-      author: "Yuval Noah Harari",
-      category: "Khoa học",
-      price: 189000,
-      oldPrice: 229000,
-      image: "https://picsum.photos/seed/book4/300/420",
-    },
-    {
-      id: 5,
-      title: "Cây Cam Ngọt Của Tôi",
-      author: "José Mauro de Vasconcelos",
-      category: "Tiểu thuyết",
-      price: 88000,
-      oldPrice: 110000,
-      image: "https://picsum.photos/seed/book5/300/420",
-    },
-    {
-      id: 6,
-      title: "Người Giàu Có Nhất Thành Babylon",
-      author: "George S. Clason",
-      category: "Tài chính",
-      price: 65000,
-      oldPrice: 80000,
-      image: "https://picsum.photos/seed/book6/300/420",
-    },
-    {
-      id: 7,
-      title: "Tôi Tài Giỏi, Bạn Cũng Thế",
-      author: "Adam Khoo",
-      category: "Kỹ năng sống",
-      price: 99000,
-      oldPrice: 120000,
-      image: "https://picsum.photos/seed/book7/300/420",
-    },
-    {
-      id: 8,
-      title: "Muôn Kiếp Nhân Sinh",
-      author: "Nguyên Phong",
-      category: "Tâm linh",
-      price: 135000,
-      oldPrice: 165000,
-      image: "https://picsum.photos/seed/book8/300/420",
-    },
-    {
-      id: 9,
-      title: "Atomic Habits",
-      author: "James Clear",
-      category: "Kỹ năng sống",
-      price: 159000,
-      oldPrice: 189000,
-      image: "https://picsum.photos/seed/book9/300/420",
-    },
-    {
-      id: 10,
-      title: "Nghĩ Giàu Làm Giàu",
-      author: "Napoleon Hill",
-      category: "Tài chính",
-      price: 95000,
-      oldPrice: 115000,
-      image: "https://picsum.photos/seed/book10/300/420",
-    },
+    { id: 1, title: "Nhà Giả Kim", author: "Paulo Coelho", category: "Tiểu thuyết", price: 79000, oldPrice: 99000, rating: 4.8, sold: 1200, image: "assets/images/nha-gia-kim.jpg" },
+    { id: 2, title: "Đắc Nhân Tâm", author: "Dale Carnegie", category: "Kỹ năng sống", price: 86000, oldPrice: 108000, rating: 4.9, sold: 3400, image: "assets/images/dac-nhan-tam.png" },
+    { id: 3, title: "Tuổi Trẻ Đáng Giá Bao Nhiêu", author: "Rosie Nguyễn", category: "Kỹ năng sống", price: 72000, oldPrice: 90000, rating: 4.6, sold: 1800, image: "assets/images/tuoi-tre-dang-gia-bao-nhieu.jpg" },
+    { id: 4, title: "Số Đỏ", author: "Vũ Trọng Phụng", category: "Tiểu thuyết", price: 65000, oldPrice: 80000, rating: 4.7, sold: 950, image: "assets/images/so-do.jpg" },
+    { id: 5, title: "Sapiens: Lược Sử Loài Người", author: "Yuval Noah Harari", category: "Khoa học", price: 199000, oldPrice: 249000, rating: 4.8, sold: 2500, image: "assets/images/sapiens-luoc-su-loai-nguoi.jpg" },
+    { id: 6, title: "Cà Phê Cùng Tony", author: "Tony Buổi Sáng", category: "Kỹ năng sống", price: 60000, oldPrice: 75000, rating: 4.5, sold: 2100, image: "assets/images/ca-phe-cung-tony.jpg" },
+    { id: 7, title: "Người Giàu Có Nhất Thành Babylon", author: "George S. Clason", category: "Tài chính", price: 68000, oldPrice: 85000, rating: 4.7, sold: 1650, image: "assets/images/người_giàu_có_nhất_thành_babylon.jpg" },
+    { id: 8, title: "Lược Sử Thời Gian", author: "Stephen Hawking", category: "Khoa học", price: 108000, oldPrice: 135000, rating: 4.7, sold: 1100, image: "assets/images/luoc-su-thoi-gian.jpg" },
+    { id: 9, title: "Nhà Lãnh Đạo Không Chức Danh", author: "Robin Sharma", category: "Kỹ năng sống", price: 95000, oldPrice: 120000, rating: 4.6, sold: 1300, image: "assets/images/nha-lanh-dao-khong-chuc-danh.jpg" },
+    { id: 10, title: "Muôn Kiếp Nhân Sinh", author: "Nguyên Phong", category: "Tâm linh", price: 145000, oldPrice: 180000, rating: 4.9, sold: 2900, image: "assets/images/muon-kiep-nhan-sinh.jpg" }
   ];
 }
 
-/**
- * Định dạng số tiền theo chuẩn VND
- */
+/* Định dạng số tiền theo chuẩn VND */
 function formatCurrency(value) {
   return value.toLocaleString("vi-VN") + "đ";
 }
 
-/**
- * Tính phần trăm giảm giá dựa trên giá gốc và giá bán
- */
+/* Tính phần trăm giảm giá dựa trên giá gốc và giá bán */
 function calculateDiscountPercent(price, oldPrice) {
   if (!oldPrice || oldPrice <= price) return 0;
   return Math.round(((oldPrice - price) / oldPrice) * 100);
 }
 
 
-/**
- * Tạo đoạn HTML cho 1 thẻ (card) sách dựa trên dữ liệu đầu vào
- */
+/* Tạo đoạn HTML cho 1 thẻ (card) sách dựa trên dữ liệu đầu vào */
 function createBookCardHTML(book) {
   const discount = calculateDiscountPercent(book.price, book.oldPrice);
   return `
@@ -153,9 +64,7 @@ function createBookCardHTML(book) {
   `;
 }
 
-/**
- * Render toàn bộ danh sách sách vào khu vực #bookContainer
- */
+/* Render toàn bộ danh sách sách vào khu vực #bookContainer */
 function renderBookList(bookArray) {
   const container = document.getElementById("bookContainer");
   if (!bookArray.length) {
@@ -165,17 +74,13 @@ function renderBookList(bookArray) {
   container.innerHTML = bookArray.map(createBookCardHTML).join("");
 }
 
-/**
- * Cập nhật số hiển thị trên icon giỏ hàng
- */
+/* Cập nhật số hiển thị trên icon giỏ hàng */
 function updateCartBadge(count) {
   const badge = document.getElementById("cartCount");
   badge.textContent = count;
 }
 
-/**
- * Xử lý khi người dùng bấm "Thêm vào giỏ"
- */
+/* Xử lý khi người dùng bấm "Thêm vào giỏ" */
 function handleAddToCart(bookId) {
   const books = getBookData();
   const book = books.find((item) => item.id === Number(bookId));
@@ -185,10 +90,8 @@ function handleAddToCart(bookId) {
   alert(`Đã thêm "${book.title}" vào giỏ hàng!`);
 }
 
-/**
- * Xử lý khi người dùng bấm "Xem chi tiết"
- * Hiện tại 5 cuốn sách đầu tiên (id 1 - 5) đã có trang mô tả chi tiết riêng
- */
+/* Xử lý khi người dùng bấm "Xem chi tiết"
+ * Hiện tại 5 cuốn sách đầu tiên (id 1 - 5) đã có trang mô tả chi tiết riêng */
 function goToBookDetail(bookId) {
   const id = Number(bookId);
   if (PRODUCT_DETAIL_IDS.includes(id)) {
@@ -198,9 +101,7 @@ function goToBookDetail(bookId) {
   }
 }
 
-/**
- * Hàm xử lý sự kiện click chung cho toàn bộ danh sách sách (event delegation)
- */
+/* Hàm xử lý sự kiện click chung cho toàn bộ danh sách sách (event delegation) */
 function handleBookContainerClick(event) {
   const target = event.target.closest("button[data-action]");
   if (!target) return;
@@ -213,9 +114,7 @@ function handleBookContainerClick(event) {
   }
 }
 
-/**
- * Chuẩn hóa chuỗi để so khớp tìm kiếm: chữ thường, bỏ dấu tiếng Việt
- */
+/* Chuẩn hóa chuỗi để so khớp tìm kiếm: chữ thường, bỏ dấu tiếng Việt */
 function normalizeKeyword(text) {
   return text
     .toLowerCase()
@@ -225,9 +124,7 @@ function normalizeKeyword(text) {
     .trim();
 }
 
-/**
- * Đưa các nút lọc danh mục về trạng thái "Tất cả" đang được chọn
- */
+/* Đưa các nút lọc danh mục về trạng thái "Tất cả" đang được chọn */
 function resetCategoryButtonsToAll() {
   const buttons = document.querySelectorAll("#categoryFilter button");
   buttons.forEach((btn) => btn.classList.remove("active-filter"));
@@ -235,9 +132,7 @@ function resetCategoryButtonsToAll() {
   if (allButton) allButton.classList.add("active-filter");
 }
 
-/**
- * Cập nhật tiêu đề khu vực danh sách sách và nút "Xóa tìm kiếm" theo từ khóa hiện tại
- */
+/* Cập nhật tiêu đề khu vực danh sách sách và nút "Xóa tìm kiếm" theo từ khóa hiện tại */
 function updateBookListHeading(keyword, resultCount) {
   const heading = document.getElementById("bookListHeading");
   const clearBtn = document.getElementById("clearSearchBtn");
@@ -252,9 +147,7 @@ function updateBookListHeading(keyword, resultCount) {
   }
 }
 
-/**
- * Lọc danh sách sách theo từ khóa (tìm trong tên sách và tên tác giả), rồi render lại
- */
+/* Lọc danh sách sách theo từ khóa (tìm trong tên sách và tên tác giả), rồi render lại */
 function filterBooksByKeyword(keyword) {
   const trimmedKeyword = (keyword || "").trim();
   const books = getBookData();
@@ -279,18 +172,14 @@ function filterBooksByKeyword(keyword) {
   updateBookListHeading(trimmedKeyword, filtered.length);
 }
 
-/**
- * Xóa bộ lọc tìm kiếm hiện tại, hiển thị lại toàn bộ sách
- */
+/* Xóa bộ lọc tìm kiếm hiện tại, hiển thị lại toàn bộ sách */
 function clearSearchFilter() {
   const input = document.getElementById("searchInput");
   if (input) input.value = "";
   filterBooksByKeyword("");
 }
 
-/**
- * Bôi sáng nút danh mục khớp với tên truyền vào; nếu không khớp nút nào thì về "Tất cả"
- */
+/* Bôi sáng nút danh mục khớp với tên truyền vào; nếu không khớp nút nào thì về "Tất cả" */
 function setActiveCategoryButton(category) {
   const buttons = document.querySelectorAll("#categoryFilter button");
   let isMatched = false;
@@ -304,10 +193,8 @@ function setActiveCategoryButton(category) {
   if (!isMatched) resetCategoryButtonsToAll();
 }
 
-/**
- * Đọc tham số trên URL khi tải trang chủ (?search=... hoặc ?category=...), dùng khi
- * người dùng tìm kiếm hoặc bấm vào 1 danh mục từ một trang khác rồi được chuyển về đây
- */
+/* Đọc tham số trên URL khi tải trang chủ (?search=... hoặc ?category=...), dùng khi
+ * người dùng tìm kiếm hoặc bấm vào 1 danh mục từ một trang khác rồi được chuyển về đây */
 function applyInitialFiltersFromURL() {
   const params = new URLSearchParams(window.location.search);
   const keyword = params.get("search");
@@ -329,18 +216,14 @@ function applyInitialFiltersFromURL() {
   renderBookList(getBookData());
 }
 
-/**
- * Lọc danh sách sách theo danh mục được chọn
- */
+/* Lọc danh sách sách theo danh mục được chọn */
 function filterBooksByCategory(category) {
   const books = getBookData();
   const filtered = category === "all" ? books : books.filter((book) => book.category === category);
   renderBookList(filtered);
 }
 
-/**
- * Xử lý sự kiện click vào các nút lọc danh mục
- */
+/* Xử lý sự kiện click vào các nút lọc danh mục */
 function handleCategoryFilterClick(event) {
   const target = event.target.closest("button[data-category]");
   if (!target) return;
@@ -356,9 +239,7 @@ function handleCategoryFilterClick(event) {
   filterBooksByCategory(target.dataset.category);
 }
 
-/**
- * Hàm khởi tạo chính của trang chủ - chạy khi DOM đã tải xong
- */
+/* Hàm khởi tạo chính của trang chủ - chạy khi DOM đã tải xong */
 function initIndexPage() {
   applyInitialFiltersFromURL();
   updateCartBadge(cartTotalCount);

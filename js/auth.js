@@ -1,11 +1,7 @@
 /* ===== auth.js - Xử lý form Đăng nhập & Đăng ký ===== */
 /* File này dùng chung cho cả login.html và register.html.       */
-/* Toàn bộ hàm đều được khai báo có tên (named function),         */
-/* không dùng hàm ẩn danh khi gán event.                          */
 
-/**
- * Đảo trạng thái hiển thị/ẩn của 1 ô mật khẩu khi bấm icon con mắt
- */
+/* Đảo trạng thái hiển thị/ẩn của 1 ô mật khẩu khi bấm icon con mắt */
 function togglePasswordVisibility(event) {
   const button = event.currentTarget;
   const input = document.getElementById(button.dataset.target);
@@ -19,17 +15,13 @@ function togglePasswordVisibility(event) {
   icon.classList.toggle("bi-eye-slash", isHidden);
 }
 
-/**
- * Gắn sự kiện click cho tất cả nút hiện/ẩn mật khẩu có trên trang
- */
+/* Gắn sự kiện click cho tất cả nút hiện/ẩn mật khẩu có trên trang */
 function attachPasswordToggleListeners() {
   const toggleButtons = document.querySelectorAll(".toggle-password");
   toggleButtons.forEach((button) => button.addEventListener("click", togglePasswordVisibility));
 }
 
-/**
- * Đánh giá độ mạnh của mật khẩu, trả về điểm số (0-4), nhãn và màu hiển thị
- */
+/* Đánh giá độ mạnh của mật khẩu, trả về điểm số (0-4), nhãn và màu hiển thị */
 function evaluatePasswordStrength(password) {
   let score = 0;
   if (password.length >= 6) score++;
@@ -48,9 +40,7 @@ function evaluatePasswordStrength(password) {
   return levels[Math.min(score, levels.length - 1)];
 }
 
-/**
- * Cập nhật thanh tiến trình và nhãn độ mạnh mật khẩu theo nội dung người dùng nhập
- */
+/* Cập nhật thanh tiến trình và nhãn độ mạnh mật khẩu theo nội dung người dùng nhập */
 function updatePasswordStrengthDisplay() {
   const passwordInput = document.getElementById("registerPassword");
   const bar = document.getElementById("passwordStrengthBar");
@@ -64,10 +54,8 @@ function updatePasswordStrengthDisplay() {
   label.textContent = result.label;
 }
 
-/**
- * Kiểm tra ô "Xác nhận mật khẩu" có khớp với ô "Mật khẩu" hay không,
- * dùng setCustomValidity để báo lỗi tùy chỉnh cho HTML5 validation
- */
+/* Kiểm tra ô "Xác nhận mật khẩu" có khớp với ô "Mật khẩu" hay không, 
+dùng setCustomValidity để báo lỗi tùy chỉnh cho HTML5 validation */
 function validateConfirmPasswordMatch() {
   const password = document.getElementById("registerPassword");
   const confirmPassword = document.getElementById("confirmPassword");
@@ -80,9 +68,7 @@ function validateConfirmPasswordMatch() {
   }
 }
 
-/**
- * Xử lý khi người dùng submit form đăng nhập
- */
+/* Xử lý khi người dùng submit form đăng nhập */
 function handleLoginFormSubmit(event) {
   event.preventDefault();
   const form = event.currentTarget;
@@ -99,9 +85,7 @@ function handleLoginFormSubmit(event) {
   alertBox.classList.remove("d-none");
 }
 
-/**
- * Xử lý khi người dùng submit form đăng ký
- */
+/* Xử lý khi người dùng submit form đăng ký */
 function handleRegisterFormSubmit(event) {
   event.preventDefault();
   const form = event.currentTarget;
@@ -120,18 +104,14 @@ function handleRegisterFormSubmit(event) {
   alertBox.classList.remove("d-none");
 }
 
-/**
- * Khởi tạo các sự kiện riêng cho trang đăng nhập (nếu trang hiện tại có form đăng nhập)
- */
+/* Khởi tạo các sự kiện riêng cho trang đăng nhập (nếu trang hiện tại có form đăng nhập) */
 function initLoginPage() {
   const loginForm = document.getElementById("loginForm");
   if (!loginForm) return;
   loginForm.addEventListener("submit", handleLoginFormSubmit);
 }
 
-/**
- * Khởi tạo các sự kiện riêng cho trang đăng ký (nếu trang hiện tại có form đăng ký)
- */
+/* Khởi tạo các sự kiện riêng cho trang đăng ký (nếu trang hiện tại có form đăng ký) */
 function initRegisterPage() {
   const registerForm = document.getElementById("registerForm");
   if (!registerForm) return;
@@ -145,9 +125,7 @@ function initRegisterPage() {
   confirmInput.addEventListener("input", validateConfirmPasswordMatch);
 }
 
-/**
- * Hàm khởi tạo chính - chạy khi DOM đã tải xong, dùng được cho cả 2 trang
- */
+/* Hàm khởi tạo chính - chạy khi DOM đã tải xong, dùng được cho cả 2 trang */
 function initAuthPage() {
   attachPasswordToggleListeners();
   initLoginPage();

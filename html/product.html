@@ -17,14 +17,14 @@
       <a class="navbar-brand fw-bold" href="../index.html">
         <i class="bi bi-book-half me-2"></i>BookStore
       </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Menu điều hướng">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navMenu">
-        <div class="search-wrapper mx-auto my-2 my-lg-0" style="max-width:420px;width:100%;">
+        <div class="search-wrapper mx-auto my-2 my-lg-0">
           <form class="d-flex" id="searchForm" autocomplete="off">
             <input class="form-control" type="search" id="searchInput" name="search" placeholder="Tìm kiếm sách, tác giả..." autocomplete="off">
-            <button class="btn btn-outline-light ms-2" type="submit"><i class="bi bi-search"></i></button>
+            <button class="btn btn-outline-light ms-2" type="submit" aria-label="Tìm kiếm"><i class="bi bi-search"></i></button>
           </form>
           <div class="search-suggestions-dropdown d-none" id="searchSuggestions"></div>
         </div>
@@ -76,11 +76,11 @@
           <ul class="mb-4" id="highlightList"></ul>
 
           <div class="d-flex align-items-center gap-3 mb-4">
-            <label class="fw-semibold mb-0">Số lượng:</label>
+            <label class="fw-semibold mb-0" for="quantityInput">Số lượng:</label>
             <div class="input-group quantity-selector">
-              <button class="btn btn-outline-secondary" type="button" id="decreaseBtn">−</button>
+              <button class="btn btn-outline-secondary" type="button" id="decreaseBtn" aria-label="Giảm số lượng">−</button>
               <input type="number" class="form-control" id="quantityInput" value="1" min="1">
-              <button class="btn btn-outline-secondary" type="button" id="increaseBtn">+</button>
+              <button class="btn btn-outline-secondary" type="button" id="increaseBtn" aria-label="Tăng số lượng">+</button>
             </div>
           </div>
 
@@ -98,13 +98,13 @@
     <div class="mb-5">
       <ul class="nav nav-tabs" id="productTabs">
         <li class="nav-item">
-          <button class="nav-link active" data-tab="description">Mô tả sản phẩm</button>
+          <button class="nav-link active" type="button" data-tab="description">Mô tả sản phẩm</button>
         </li>
         <li class="nav-item">
-          <button class="nav-link" data-tab="specs">Thông tin chi tiết</button>
+          <button class="nav-link" type="button" data-tab="specs">Thông tin chi tiết</button>
         </li>
         <li class="nav-item">
-          <button class="nav-link" data-tab="reviews">Đánh giá</button>
+          <button class="nav-link" type="button" data-tab="reviews">Đánh giá</button>
         </li>
       </ul>
 
