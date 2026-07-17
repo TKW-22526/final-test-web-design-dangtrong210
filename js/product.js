@@ -28,7 +28,9 @@ function getProductDetailDataset() {
       language: "Tiếng Việt",
       mainImage: "../assets/images/nha-gia-kim.jpg",
       thumbnails: [
-        ""
+        "../assets/images/thumbnails/1.1.jpg",
+        "../assets/images/thumbnails/1.2.jpg",
+        "../assets/images/thumbnails/1.3.jpg",
       ],
       description: "Nhà Giả Kim kể về cuộc hành trình của chàng chăn cừu Santiago, người rời bỏ vùng đồng cỏ quen thuộc ở Andalusia để đi tìm một giấc mơ về kho báu ẩn giấu nơi vùng kim tự tháp Ai Cập. Trên đường đi, Santiago gặp gỡ nhiều con người và trải nghiệm nhiều biến cố giúp anh hiểu được ngôn ngữ của vũ trụ và ý nghĩa thật sự của vận mệnh bản thân. Cuốn sách là một ngụ ngôn giàu chất thơ về việc lắng nghe trái tim, theo đuổi đam mê và tin tưởng vào hành trình của chính mình.",
       highlights: [
@@ -57,7 +59,9 @@ function getProductDetailDataset() {
       language: "Tiếng Việt",
       mainImage: "../assets/images/dac-nhan-tam.png",
       thumbnails: [
-        ""
+        "../assets/images/thumbnails/2.1.jpg",
+        "../assets/images/thumbnails/2.2.jpg",
+        "../assets/images/thumbnails/2.3.jpg",
       ],
       description: "Đắc Nhân Tâm là cuốn sách nổi tiếng nhất mọi thời đại về nghệ thuật giao tiếp và đối nhân xử thế. Dale Carnegie đúc kết những nguyên tắc vàng giúp người đọc chinh phục lòng người, xây dựng mối quan hệ bền vững và đạt được thành công trong công việc lẫn cuộc sống.",
       highlights: [
@@ -86,7 +90,9 @@ function getProductDetailDataset() {
       language: "Tiếng Việt",
       mainImage: "../assets/images/tuoi-tre-dang-gia-bao-nhieu.jpg",
       thumbnails: [
-        ""
+        "../assets/images/thumbnails/3.1.jpg",
+        "../assets/images/thumbnails/3.2.jpg",
+        "../assets/images/thumbnails/3.3.png",
       ],
       description: "Cuốn sách chia sẻ những trải nghiệm và bài học của tác giả về hành trình tuổi trẻ: học tập, làm việc, du lịch bụi và khám phá bản thân. Tác phẩm truyền cảm hứng cho người trẻ dám sống hết mình và không ngừng học hỏi.",
       highlights: [
@@ -115,7 +121,9 @@ function getProductDetailDataset() {
       language: "Tiếng Việt",
       mainImage: "../assets/images/so-do.jpg",
       thumbnails: [
-        ""
+        "../assets/images/thumbnails/4.1.jpg",
+        "../assets/images/thumbnails/4.2.jpg",
+        "../assets/images/thumbnails/4.3.png",
       ],
       description: "Số Đỏ là tiểu thuyết trào phúng kinh điển của Vũ Trọng Phụng, khắc họa xã hội thực dân nửa phong kiến qua nhân vật Xuân Tóc Đỏ. Tác phẩm phê phán sâu sắc thói học đòi, giả dối của tầng lớp thượng lưu đương thời.",
       highlights: [
@@ -144,7 +152,9 @@ function getProductDetailDataset() {
       language: "Tiếng Việt",
       mainImage: "../assets/images/sapiens-luoc-su-loai-nguoi.jpg",
       thumbnails: [
-        ""
+        "../assets/images/thumbnails/5.1.jpg",
+        "../assets/images/thumbnails/5.2.jpg",
+        "../assets/images/thumbnails/5.3.jpg",
       ],
       description: "Sapiens đưa người đọc qua hành trình 70.000 năm tiến hóa của loài người, từ những bộ lạc săn bắt hái lượm đến nền văn minh công nghệ hiện đại. Harari phân tích cách ngôn ngữ, tôn giáo và tiền bạc định hình xã hội loài người.",
       highlights: [
@@ -173,7 +183,9 @@ function getProductDetailDataset() {
       language: "Tiếng Việt",
       mainImage: "../assets/images/ca-phe-cung-tony.jpg",
       thumbnails: [
-        ""
+        "../assets/images/thumbnails/6.1.png",
+        "../assets/images/thumbnails/6.2.jpg",
+        "../assets/images/thumbnails/6.3.jpg",
       ],
       description: "Tập hợp những bài viết ngắn gọn, hài hước nhưng sâu sắc của Tony Buổi Sáng về khởi nghiệp, hội nhập và tư duy toàn cầu. Cuốn sách truyền cảm hứng cho giới trẻ Việt Nam vươn ra thế giới.",
       highlights: [
@@ -202,7 +214,9 @@ function getProductDetailDataset() {
       language: "Tiếng Việt",
       mainImage: "../assets/images/người_giàu_có_nhất_thành_babylon.jpg",
       thumbnails: [
-        ""
+        "../assets/images/thumbnails/7.1.jpg",
+        "../assets/images/thumbnails/7.2.jpg",
+        "../assets/images/thumbnails/7.3.jpg",
       ],
       description: "Thông qua những câu chuyện ngụ ngôn lấy bối cảnh thành Babylon cổ đại, tác giả truyền tải các nguyên tắc quản lý tài chính cá nhân và tích lũy của cải bền vững, vẫn còn nguyên giá trị đến ngày nay.",
       highlights: [
@@ -231,7 +245,9 @@ function getProductDetailDataset() {
       language: "Tiếng Việt",
       mainImage: "../assets/images/luoc-su-thoi-gian.jpg",
       thumbnails: [
-        ""
+        "../assets/images/thumbnails/8.1.jpg",
+        "../assets/images/thumbnails/8.2.jpg",
+        "../assets/images/thumbnails/8.3.jpg",
       ],
       description: "Stephen Hawking giải thích những khái niệm phức tạp nhất của vũ trụ học - từ Big Bang, hố đen đến bản chất thời gian - bằng ngôn ngữ dễ hiểu cho độc giả phổ thông. Đây là một trong những cuốn sách khoa học phổ thông bán chạy nhất mọi thời đại.",
       highlights: [
@@ -260,7 +276,9 @@ function getProductDetailDataset() {
       language: "Tiếng Việt",
       mainImage: "../assets/images/nha-lanh-dao-khong-chuc-danh.jpg",
       thumbnails: [
-        ""
+        "../assets/images/thumbnails/9.1.jpg",
+        "../assets/images/thumbnails/9.2.jpg",
+        "../assets/images/thumbnails/9.3.jpg",
       ],
       description: "Cuốn sách khẳng định ai cũng có thể trở thành lãnh đạo trong lĩnh vực của mình, không cần chức danh hay vị trí cao. Qua câu chuyện kể, Robin Sharma truyền đạt các nguyên tắc lãnh đạo bản thân và tạo ảnh hưởng tích cực.",
       highlights: [
@@ -289,7 +307,9 @@ function getProductDetailDataset() {
       language: "Tiếng Việt",
       mainImage: "../assets/images/muon-kiep-nhan-sinh.jpg",
       thumbnails: [
-        ""
+        "../assets/images/thumbnails/10.1.jpg",
+        "../assets/images/thumbnails/10.2.jpg",
+        "../assets/images/thumbnails/10.3.jpg",
       ],
       description: "Cuốn sách kể lại hành trình khám phá tiền kiếp của doanh nhân Thomas qua các buổi thôi miên hồi quy, hé lộ những bài học về nhân quả, luân hồi và ý nghĩa cuộc sống. Tác phẩm kết hợp giữa trải nghiệm tâm linh và tư duy khoa học.",
       highlights: [
