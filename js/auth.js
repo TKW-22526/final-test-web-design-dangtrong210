@@ -1,4 +1,4 @@
-/* ===== auth.js - Xử lý form Đăng nhập & Đăng ký ===== */
+/* auth.js - Xử lý form Đăng nhập & Đăng ký */
 /* File này dùng chung cho cả login.html và register.html.       */
 
 /* Đảo trạng thái hiển thị/ẩn của 1 ô mật khẩu khi bấm icon con mắt */

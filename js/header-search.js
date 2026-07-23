@@ -1,11 +1,10 @@
-/* ===== header-search.js - Xử lý thanh tìm kiếm chung trên navbar (kèm gợi ý) ===== */
+/* header-search.js - Xử lý thanh tìm kiếm chung trên navbar (kèm gợi ý) */
 /* File này được nhúng ở mọi trang có thanh tìm kiếm (index, product, cart).               */
 /* Khi gõ vào ô tìm kiếm: hiện dần danh sách gợi ý các sách có tên/tác giả gần giống nhất.  */
-/* Khi click vào 1 gợi ý hoặc nhấn Enter: mới thực sự thực hiện tìm kiếm.                   */
 /* Nếu đang ở trang chủ (có sẵn hàm filterBooksByKeyword từ index.js) thì lọc ngay tại chỗ. */
 /* Nếu đang ở trang khác thì chuyển hướng về trang chủ kèm từ khóa qua query string ?search= */
 
-const MAX_SUGGESTION_RESULTS = 10;
+const MAX_SUGGESTION_RESULTS = 6;
 
 /* Trả về danh sách rút gọn của toàn bộ sách trong cửa hàng, dùng để gợi ý khi gõ tìm kiếm */
 function getSearchSuggestionsData() {

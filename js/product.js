@@ -1,5 +1,4 @@
-/* ===== product.js - Xử lý tương tác trên trang mô tả chi tiết sách ==== */
-/* Toàn bộ hàm đều được khai báo có tên (named function), không dùng hàm ẩn danh khi gán even */
+/* product.js - Xử lý tương tác trên trang mô tả chi tiết sách */
 /* Trang này dùng chung cho nhiều cuốn sách, xác định sách nào qua tham số ?id= trên URL.      */
 /* Ví dụ: product.html?id=2 sẽ hiển thị chi tiết cuốn sách có id = 2.                          */
 
@@ -7,7 +6,7 @@ let currentCartCount = 0; // Số lượng trong giỏ hàng (lưu tạm trong p
 
 const PRODUCT_DETAIL_IDS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; // Các id sách đã có trang mô tả chi tiết đầy đủ
 
-/* Trả về toàn bộ dữ liệu chi tiết của những cuốn sách đã có trang mô tả riêng (id 1 - 5) */
+/* Trả về toàn bộ dữ liệu chi tiết của những cuốn sách đã có trang mô tả riêng */
 function getProductDetailDataset() {
   return {
     1: {
@@ -410,7 +409,7 @@ function getFullBookCatalog() {
 }
 
 /* Chọn ra 4 sách gợi ý cho khu vực "Sản phẩm tương tự", loại trừ sách đang xem,
- * ưu tiên những sách đã có trang mô tả chi tiết để người dùng bấm vào xem ngay được */
+ưu tiên những sách đã có trang mô tả chi tiết để người dùng bấm vào xem ngay được */
 function getRelatedBooksData(currentId) {
   const otherBooks = getFullBookCatalog().filter((book) => book.id !== currentId);
   const withDetailPage = otherBooks.filter((book) => PRODUCT_DETAIL_IDS.includes(book.id));

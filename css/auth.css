@@ -1,11 +1,11 @@
-/* ===== auth.css - Style chung cho trang Đăng nhập & Đăng ký ===== */
+/* auth.css - Style chung cho trang Đăng nhập & Đăng ký */
 
 body.auth-body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
   margin: 0;
 }
 
-/* ===== Panel bên trái (thương hiệu) ===== */
+/* Panel bên trái (thương hiệu) */
 .auth-left {
   background: linear-gradient(135deg, #2b2d6e 0%, #5b3cc4 100%);
   position: relative;
@@ -46,7 +46,7 @@ body.auth-body {
   opacity: 0.85;
 }
 
-/* ===== Panel bên phải (form) ===== */
+/* Panel bên phải (form) */
 .auth-right {
   background-color: #f7f7fb;
 }
@@ -63,7 +63,7 @@ body.auth-body {
   max-width: 420px;
 }
 
-/* ===== Input ===== */
+/* Input */
 .auth-form-box .input-group-text {
   background-color: #fff;
   border-right: none;
@@ -84,7 +84,7 @@ body.auth-body {
   border-color: #ced4da;
 }
 
-/* ===== Nút bấm chính ===== */
+/* Nút bấm chính */
 .btn-primary-gradient {
   background: linear-gradient(135deg, #2b2d6e 0%, #5b3cc4 100%);
   border: none;
@@ -100,7 +100,7 @@ body.auth-body {
   color: #fff;
 }
 
-/* ===== Đường kẻ "hoặc" ===== */
+/* Đường kẻ "hoặc" */
 .auth-divider {
   display: flex;
   align-items: center;
@@ -120,7 +120,7 @@ body.auth-body {
   white-space: nowrap;
 }
 
-/* ===== Nút hiện/ẩn mật khẩu ===== */
+/* Nút hiện/ẩn mật khẩu */
 .toggle-password {
   border-left: none;
   background-color: #fff;
@@ -133,7 +133,7 @@ body.auth-body {
   color: #5b3cc4;
 }
 
-/* ===== Thanh đo độ mạnh mật khẩu ===== */
+/* Thanh đo độ mạnh mật khẩu */
 .password-strength .progress {
   border-radius: 4px;
   background-color: #eee;
@@ -145,13 +145,13 @@ body.auth-body {
   width: 0%;
 }
 
-/* ===== Ghi chú nhỏ dưới mật khẩu ===== */
+/* Ghi chú nhỏ dưới mật khẩu */
 .field-hint {
   font-size: 0.8rem;
   color: #888;
 }
 
-/* ===== Responsive ===== */
+/* Responsive */
 @media (max-width: 991.98px) {
   .auth-form-box {
     box-shadow: none;

@@ -99,10 +99,6 @@ function getBookData() {
   ];
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderCategoryFilters();
-});
-
 /* Hàm tự động sinh các nút danh mục dựa trên dữ liệu từ getBookData() */
 function renderCategoryFilters() {
   const filterContainer = document.getElementById("categoryFilter");
@@ -119,6 +115,7 @@ function renderCategoryFilters() {
 
   setupFilterEvents();
 }
+document.addEventListener("DOMContentLoaded", () => { renderCategoryFilters(); });
 
 /* Hàm gắn sự kiện lọc sách khi nhấn nút */
 function setupFilterEvents() {
@@ -317,7 +314,7 @@ function setActiveCategoryButton(category) {
 }
 
 /* Đọc tham số trên URL khi tải trang chủ (?search=... hoặc ?category=...), dùng khi
- * người dùng tìm kiếm hoặc bấm vào 1 danh mục từ một trang khác rồi được chuyển về đây */
+người dùng tìm kiếm hoặc bấm vào 1 danh mục từ một trang khác rồi được chuyển về đây */
 function applyInitialFiltersFromURL() {
   const params = new URLSearchParams(window.location.search);
   const keyword = params.get("search");

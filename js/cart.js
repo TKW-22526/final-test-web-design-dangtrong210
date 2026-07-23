@@ -7,7 +7,7 @@ let discountPercent = 0; // % giảm giá đang được áp dụng (0 - 100)
 const SHIPPING_FEE = 20000;       // Phí vận chuyển mặc định
 const FREE_SHIPPING_THRESHOLD = 200000; // Miễn phí vận chuyển khi tạm tính >= mức này
 const VALID_DISCOUNT_CODE = "SACH10";   // Mã giảm giá demo
-const VALID_DISCOUNT_PERCENT = 10;
+const VALID_DISCOUNT_PERCENT = 10;  //Phần trăm được giảm
 
 /* Trả về dữ liệu mẫu cho giỏ hàng (mô phỏng người dùng đã thêm vài cuốn sách trước đó) */
 function getInitialCartData() {
@@ -17,24 +17,24 @@ function getInitialCartData() {
       title: "Nhà Giả Kim",
       author: "Paulo Coelho",
       price: 79000,
-      image: "https://picsum.photos/seed/book1/120/160",
+      image: "../assets/images/nha-gia-kim.jpg",
+      quantity: 1,
+    },
+    {
+      id: 5,
+      title: "Sapiens: Lược Sử Loài Người",
+      author: "Yuval Noah Harari",
+      price: 199000,
+      image: "../assets/images/sapiens-luoc-su-loai-nguoi.jpg",
       quantity: 2,
     },
     {
-      id: 4,
-      title: "Sapiens: Lược Sử Loài Người",
-      author: "Yuval Noah Harari",
-      price: 189000,
-      image: "https://picsum.photos/seed/book4/120/160",
-      quantity: 1,
-    },
-    {
       id: 9,
-      title: "Atomic Habits",
-      author: "James Clear",
-      price: 159000,
-      image: "https://picsum.photos/seed/book9/120/160",
-      quantity: 1,
+      title: "Nhà Lãnh Đạo Không Chức Danh",
+      author: "Robin Sharma",
+      price: 95000,
+      image: "../assets/images/nha-lanh-dao-khong-chuc-danh.jpg",
+      quantity: 3,
     },
   ];
 }

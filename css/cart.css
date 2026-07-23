@@ -1,4 +1,4 @@
-/* ===== cart.css - Style riêng cho trang Giỏ hàng ===== */
+/* cart.css - Style riêng cho trang Giỏ hàng */
 
 body {
   font-family: "Segoe UI", Roboto, Arial, sans-serif;
@@ -12,7 +12,7 @@ body {
   border-left: 5px solid #5b3cc4;
 }
 
-/* ===== Bảng sản phẩm trong giỏ ===== */
+/* Bảng sản phẩm trong giỏ */
 .cart-table-card {
   background: #fff;
   border-radius: 12px;
@@ -47,7 +47,7 @@ body {
   text-align: center;
 }
 
-/* ===== Khối tóm tắt đơn hàng ===== */
+/* Khối tóm tắt đơn hàng */
 .cart-summary-card {
   border-radius: 12px;
   top: 90px;
@@ -78,7 +78,7 @@ body {
   color: #fff;
 }
 
-/* ===== Trạng thái giỏ hàng trống ===== */
+/* Trạng thái giỏ hàng trống */
 #emptyCartState {
   background: #fff;
   border-radius: 12px;
